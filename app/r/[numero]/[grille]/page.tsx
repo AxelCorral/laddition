@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Navigation } from "@/components/Navigation";
 import { dateDuTicket } from "@/lib/date-paris";
 import { grilleEmoji, lireLienPartage, NB_QUESTIONS, score, verdict } from "@/lib/partie";
 import styles from "./page.module.css";
@@ -71,6 +72,9 @@ export default async function ResultatPartage({ params }: Props) {
         </Link>
         <p className={styles.note}>Un nouveau ticket chaque jour à minuit. Sans compte, sans cookie.</p>
       </main>
+      <footer className={styles.foot}>
+        <Navigation />
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nav a {
+  display: inline-block;
+  padding: 8px 0;
+  color: var(--on-table);
+  text-underline-offset: 4px;
+  text-decoration-color: color-mix(in srgb, var(--on-table) 40%, transparent);
+}
+.nav a[aria-current="page"] {
+  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
+}
