@@ -1,1 +1,41 @@
-# laddition
+# L'Addition
+
+Jeu quotidien sur les dépenses publiques : chaque jour, un ticket de six lignes ; on devine si la suivante coûte plus ou moins cher. Chaque montant vient de `data/lignes.json` et renvoie à sa source officielle.
+
+## Démarrer
+
+```bash
+npm install
+npm run dev               # http://localhost:3000
+npm run test              # Vitest
+npm run verifier-donnees  # contrôle data/lignes.json et le calendrier
+npm run build             # vérifie les données puis construit le site
+```
+
+Aucune variable d'environnement n'est obligatoire.
+
+## Ajouter ou modifier des lignes
+
+1. Éditer `data/lignes.json` (schéma dans `lib/schema.ts`).
+   - `montant` : euros, entier, strictement positif, unique dans la base.
+   - `affichage` (facultatif) : texte affiché à la place du montant formaté. S'il commence par `>`, `≥` ou « plus de », le montant est traité comme un **minimum** ; par `<`, `≤` ou « moins de », comme un **maximum** ; par `≈`, `~` ou « environ », comme une **approximation**. Le calendrier en tient compte (voir ci-dessous).
+   - `source.url` : obligatoire, en `https://`.
+2. `npm run generer-calendrier` : prolonge le calendrier en intégrant les nouvelles lignes dans les tickets futurs.
+3. `npm run verifier-donnees` puis committer `data/lignes.json` **et** `data/calendrier.lock.json`.
+
+## Le calendrier
+
+- Ticket n° 1 : 23 octobre 2026. Le jour change à minuit, heure de Paris (changements d'heure compris).
+- `data/calendrier.lock.json` liste les lignes de chaque ticket ; le site ne fait que le lire. Il est généré par `scripts/generer-calendrier.ts` (logique dans `lib/calendrier.ts`).
+- La base est mélangée par cycles avec une graine fixe et parcourue par paquets de 6 : aucune ligne ne revient avant que toute la base ait été jouée. Les lignes vues à la fin d'un cycle sont repoussées en fin du cycle suivant.
+- Deux lignes consécutives doivent former une paire jouable : rapport ≤ 1 000, écart ≥ 5 % (≥ 20 % si l'un des montants est approximatif) ; un montant « minimum » doit toujours être le plus grand de sa paire.
+- **Stabilité** : la génération conserve tous les tickets jusqu'à demain inclus. Ajouter des lignes ne modifie que les tickets futurs. `--tout-regenerer` repart de zéro et ne doit servir qu'avant toute publication.
+- Le build échoue si le calendrier couvre moins de 30 jours à venir : relancer `npm run generer-calendrier` (il génère un an d'avance). Au-delà du calendrier, le site bascule sur un tirage de secours déterministe.
+
+## Déployer
+
+Relier le dépôt à Vercel (framework Next.js détecté automatiquement). Chaque pull request obtient un aperçu. Pour les événements d'audience (`partie_commencee`, `partie_terminee`, `ticket_copie`), activer Web Analytics dans le projet Vercel ; les événements personnalisés nécessitent un plan Pro.
+
+## Vie privée
+
+Aucun compte, aucun cookie, aucun formulaire. La progression et la série restent dans le `localStorage` du navigateur.
