@@ -242,5 +242,870 @@
       "titre": "Rapport du Sénat sur le coût des élections, via la Revue politique et parlementaire",
       "url": "https://www.revuepolitique.fr/?p=1244"
     }
+  },
+  {
+    "id": "budget-de-la-defense",
+    "libelle": "Budget de la Défense",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 66700000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Défense », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-38/l25-139-38-syn.pdf"
+    }
+  },
+  {
+    "id": "budget-de-la-justice",
+    "libelle": "Budget de la Justice",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 13054900000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Justice », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Justice_Essentiel_PLF2026_post-commission.pdf"
+    }
+  },
+  {
+    "id": "administration-penitentiaire",
+    "libelle": "Administration pénitentiaire",
+    "contexte": "Prisons et probation · budget 2026",
+    "montant": 5548900000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Justice », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Justice_Essentiel_PLF2026_post-commission.pdf"
+    }
+  },
+  {
+    "id": "protection-judiciaire-de-la-jeunesse",
+    "libelle": "Protection judiciaire de la jeunesse",
+    "contexte": "Crédits · budget 2026",
+    "montant": 1159600000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Justice », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Justice_Essentiel_PLF2026_post-commission.pdf"
+    }
+  },
+  {
+    "id": "aide-juridictionnelle",
+    "libelle": "Aide juridictionnelle",
+    "contexte": "Avocat payé par l'État · budget 2026",
+    "montant": 714200000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Justice », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Justice_Essentiel_PLF2026_post-commission.pdf"
+    }
+  },
+  {
+    "id": "audiovisuel-public",
+    "libelle": "Audiovisuel public",
+    "contexte": "France Télévisions, Radio France, Arte… · budget 2026",
+    "montant": 3878000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Médias, livre et industries culturelles », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-318/l25-139-318-syn.pdf"
+    }
+  },
+  {
+    "id": "aides-a-la-presse",
+    "libelle": "Aides à la presse",
+    "contexte": "Crédits · budget 2026",
+    "montant": 178290000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Médias, livre et industries culturelles », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-318/l25-139-318-syn.pdf"
+    }
+  },
+  {
+    "id": "service-national-universel-snu",
+    "libelle": "Service national universel (SNU)",
+    "contexte": "Crédits 2025, supprimés en 2026",
+    "montant": 65900000,
+    "annee": 2025,
+    "source": {
+      "titre": "Sénat, avis « Jeunesse et vie associative », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-62/a25-144-62-syn.pdf"
+    }
+  },
+  {
+    "id": "service-civique",
+    "libelle": "Service civique",
+    "contexte": "Crédits · budget 2026",
+    "montant": 465000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Jeunesse et vie associative », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-62/a25-144-62-syn.pdf"
+    }
+  },
+  {
+    "id": "programme-jeunesse-et-vie-associative",
+    "libelle": "Programme « Jeunesse et vie associative »",
+    "contexte": "Crédits · budget 2026",
+    "montant": 626600000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Jeunesse et vie associative », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-62/a25-144-62-syn.pdf"
+    }
+  },
+  {
+    "id": "enseignement-scolaire",
+    "libelle": "Enseignement scolaire",
+    "contexte": "Crédits hors pensions · budget 2026",
+    "montant": 64490000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Enseignement scolaire », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Enseignement_scolaire_Essentiel_post-commission_PLF_2026.pdf"
+    }
+  },
+  {
+    "id": "ecole-inclusive",
+    "libelle": "École inclusive",
+    "contexte": "Élèves en situation de handicap · budget 2026",
+    "montant": 4740000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Enseignement scolaire », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Enseignement_scolaire_Essentiel_post-commission_PLF_2026.pdf"
+    }
+  },
+  {
+    "id": "reforme-de-la-formation-des-enseignants",
+    "libelle": "Réforme de la formation des enseignants",
+    "contexte": "Coût en 2026",
+    "montant": 88000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Enseignement scolaire », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Enseignement_scolaire_Essentiel_post-commission_PLF_2026.pdf"
+    }
+  },
+  {
+    "id": "police-nationale",
+    "libelle": "Police nationale",
+    "contexte": "Crédits · budget 2026",
+    "montant": 13890800000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Sécurités », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/NP/Securites_PN-GN-SR-CAS_NP_PLF_2026.pdf"
+    }
+  },
+  {
+    "id": "gendarmerie-nationale",
+    "libelle": "Gendarmerie nationale",
+    "contexte": "Crédits · budget 2026",
+    "montant": 11091900000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Sécurités », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/NP/Securites_PN-GN-SR-CAS_NP_PLF_2026.pdf"
+    }
+  },
+  {
+    "id": "programme-securite-et-education-routieres",
+    "libelle": "Programme « Sécurité et éducation routières »",
+    "contexte": "Crédits · budget 2026",
+    "montant": 82100000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Sécurités », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/NP/Securites_PN-GN-SR-CAS_NP_PLF_2026.pdf"
+    }
+  },
+  {
+    "id": "cohesion-des-territoires",
+    "libelle": "Cohésion des territoires",
+    "contexte": "Logement, hébergement, ville · budget 2026",
+    "montant": 22200000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Cohésion des territoires », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1-syn.pdf"
+    }
+  },
+  {
+    "id": "aides-personnalisees-au-logement-apl",
+    "libelle": "Aides personnalisées au logement (APL)",
+    "contexte": "Part de l'État · budget 2026",
+    "montant": 16100000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Cohésion des territoires », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1-syn.pdf"
+    }
+  },
+  {
+    "id": "hebergement-d-urgence-et-insertion",
+    "libelle": "Hébergement d'urgence et insertion",
+    "contexte": "Crédits · budget 2026",
+    "montant": 3100000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Cohésion des territoires », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-35-1/l25-139-35-1-syn.pdf"
+    }
+  },
+  {
+    "id": "recherche-et-enseignement-superieur",
+    "libelle": "Recherche et enseignement supérieur",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 31475000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Recherche et enseignement supérieur », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-323/l25-139-323-syn.pdf"
+    }
+  },
+  {
+    "id": "bourses-etudiantes",
+    "libelle": "Bourses étudiantes",
+    "contexte": "Crédits · budget 2026",
+    "montant": 2320000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Recherche et enseignement supérieur », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-323/l25-139-323-syn.pdf"
+    }
+  },
+  {
+    "id": "aide-publique-au-developpement",
+    "libelle": "Aide publique au développement",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 3670000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Aide publique au développement », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-34/l25-139-34-syn.pdf"
+    }
+  },
+  {
+    "id": "dotation-de-l-etat-a-france-competences",
+    "libelle": "Dotation de l'État à France compétences",
+    "contexte": "Formation professionnelle · budget 2026",
+    "montant": 673000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Travail et emploi », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-331/l25-139-331-syn.pdf"
+    }
+  },
+  {
+    "id": "aide-aux-employeurs-d-apprentis",
+    "libelle": "Aide aux employeurs d'apprentis",
+    "contexte": "Crédits · budget 2026",
+    "montant": 2369000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Travail et emploi », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-331/l25-139-331-syn.pdf"
+    }
+  },
+  {
+    "id": "solidarite-insertion-et-egalite-des-chances",
+    "libelle": "Solidarité, insertion et égalité des chances",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 29500000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Solidarité, insertion et égalité des chances », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-329/l25-139-329-syn.pdf"
+    }
+  },
+  {
+    "id": "prime-d-activite",
+    "libelle": "Prime d'activité",
+    "contexte": "Crédits · budget 2026",
+    "montant": 9300000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Solidarité, insertion et égalité des chances », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-329/l25-139-329-syn.pdf"
+    }
+  },
+  {
+    "id": "allocation-aux-adultes-handicapes-aah",
+    "libelle": "Allocation aux adultes handicapés (AAH)",
+    "contexte": "Crédits · budget 2026",
+    "montant": 14600000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Solidarité, insertion et égalité des chances », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-329/l25-139-329-syn.pdf"
+    }
+  },
+  {
+    "id": "programme-egalite-entre-les-femmes-et-les-hommes",
+    "libelle": "Programme « Égalité entre les femmes et les hommes »",
+    "contexte": "Crédits · budget 2026",
+    "montant": 95600000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Solidarité, insertion et égalité des chances », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-329/l25-139-329-syn.pdf"
+    }
+  },
+  {
+    "id": "aide-d-urgence-aux-victimes-de-violences-conjuga",
+    "libelle": "Aide d'urgence aux victimes de violences conjugales",
+    "contexte": "Crédits · budget 2026",
+    "montant": 26400000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Solidarité, insertion et égalité des chances », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-329/l25-139-329-syn.pdf"
+    }
+  },
+  {
+    "id": "cour-de-justice-de-la-republique",
+    "libelle": "Cour de justice de la République",
+    "contexte": "Dotation · budget 2026",
+    "montant": 900000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Pouvoirs publics », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Pouvoirs_publics_Essentiel_post-commission_PLF_26.pdf"
+    }
+  },
+  {
+    "id": "mission-pouvoirs-publics",
+    "libelle": "Mission « Pouvoirs publics »",
+    "contexte": "Élysée, Parlement, Conseil constitutionnel… · budget 2026",
+    "montant": 1140179221,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Pouvoirs publics », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Pouvoirs_publics_Essentiel_post-commission_PLF_26.pdf"
+    }
+  },
+  {
+    "id": "dotation-aux-mairies-qui-delivrent-passeports-et",
+    "libelle": "Dotation aux mairies qui délivrent passeports et cartes d'identité",
+    "contexte": "Budget 2026",
+    "montant": 100000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Relations avec les collectivités territoriales », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-145-11/a25-145-11-syn.pdf"
+    }
+  },
+  {
+    "id": "soutien-a-l-investissement-des-departements",
+    "libelle": "Soutien à l'investissement des départements",
+    "contexte": "Dotation (DSID) · budget 2026",
+    "montant": 212000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Relations avec les collectivités territoriales », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-145-11/a25-145-11-syn.pdf"
+    }
+  },
+  {
+    "id": "agriculture-alimentation-et-foret",
+    "libelle": "Agriculture, alimentation et forêt",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 4005000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Agriculture, alimentation, forêt et affaires rurales », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33-syn.pdf"
+    }
+  },
+  {
+    "id": "securite-sanitaire-de-l-alimentation",
+    "libelle": "Sécurité sanitaire de l'alimentation",
+    "contexte": "Crédits · budget 2026",
+    "montant": 838000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Agriculture, alimentation, forêt et affaires rurales », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-33/l25-139-33-syn.pdf"
+    }
+  },
+  {
+    "id": "organisation-des-elections-municipales-2026",
+    "libelle": "Organisation des élections municipales 2026",
+    "contexte": "Coût pour l'État",
+    "montant": 193500000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/AGTE_PLF_2026_Essentiel_post_commission.pdf"
+    }
+  },
+  {
+    "id": "organisation-des-elections-senatoriales-2026",
+    "libelle": "Organisation des élections sénatoriales 2026",
+    "contexte": "Coût pour l'État",
+    "montant": 3700000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/AGTE_PLF_2026_Essentiel_post_commission.pdf"
+    }
+  },
+  {
+    "id": "financement-public-des-partis-politiques",
+    "libelle": "Financement public des partis politiques",
+    "contexte": "Aide de l'État · budget 2026",
+    "montant": 68670000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-32/l25-139-32-syn.pdf"
+    }
+  },
+  {
+    "id": "envoi-postal-des-professions-de-foi-des-municipa",
+    "libelle": "Envoi postal des professions de foi des municipales",
+    "contexte": "Élections 2026",
+    "montant": 46100000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/AGTE_PLF_2026_Essentiel_post_commission.pdf"
+    }
+  },
+  {
+    "id": "fonds-interministeriel-de-prevention-de-la-delin",
+    "libelle": "Fonds interministériel de prévention de la délinquance",
+    "contexte": "Crédits · budget 2026",
+    "montant": 43450000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-32/l25-139-32-syn.pdf"
+    }
+  },
+  {
+    "id": "reforme-du-mode-de-scrutin-a-paris-lyon-et-marse",
+    "libelle": "Réforme du mode de scrutin à Paris, Lyon et Marseille",
+    "contexte": "Coût en 2026",
+    "montant": 15200000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/AGTE_PLF_2026_Essentiel_post_commission.pdf"
+    }
+  },
+  {
+    "id": "loi-sur-la-securite-des-maires",
+    "libelle": "Loi sur la sécurité des maires",
+    "contexte": "Coût en 2026",
+    "montant": 7610000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/AGTE_PLF_2026_Essentiel_post_commission.pdf"
+    }
+  },
+  {
+    "id": "administration-generale-et-territoriale-de-l-eta",
+    "libelle": "Administration générale et territoriale de l'État",
+    "contexte": "Préfectures, élections · budget 2026",
+    "montant": 5110000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Administration générale et territoriale de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-32/l25-139-32-syn.pdf"
+    }
+  },
+  {
+    "id": "budget-des-outre-mer",
+    "libelle": "Budget des Outre-mer",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 2830000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Outre-mer », budget 2026",
+      "url": "https://conferenceconsensuslogement.senat.fr/rap/l25-139-320/l25-139-320-syn.pdf"
+    }
+  },
+  {
+    "id": "continuite-territoriale-avec-les-outre-mer",
+    "libelle": "Continuité territoriale avec les Outre-mer",
+    "contexte": "Aides aux billets d'avion · budget 2026",
+    "montant": 76800000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Outre-mer », budget 2026",
+      "url": "https://conferenceconsensuslogement.senat.fr/rap/l25-139-320/l25-139-320-syn.pdf"
+    }
+  },
+  {
+    "id": "ecologie-developpement-et-mobilite-durables",
+    "libelle": "Écologie, développement et mobilité durables",
+    "contexte": "Crédits de la mission · budget 2026",
+    "montant": 16218100000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Écologie, développement et mobilité durables », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-11.pdf"
+    }
+  },
+  {
+    "id": "fonds-chaleur-de-l-ademe",
+    "libelle": "Fonds chaleur de l'Ademe",
+    "contexte": "Crédits · budget 2026",
+    "montant": 800000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Écologie, développement et mobilité durables », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-11.pdf"
+    }
+  },
+  {
+    "id": "programme-service-public-de-l-energie",
+    "libelle": "Programme « Service public de l'énergie »",
+    "contexte": "Soutien aux énergies renouvelables · budget 2026",
+    "montant": 8443200000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Écologie, développement et mobilité durables », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-11.pdf"
+    }
+  },
+  {
+    "id": "fonds-barnier",
+    "libelle": "Fonds Barnier",
+    "contexte": "Prévention des risques naturels · budget 2026",
+    "montant": 287400000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Écologie, développement et mobilité durables », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-11.pdf"
+    }
+  },
+  {
+    "id": "fonds-vert-pour-les-collectivites",
+    "libelle": "Fonds vert pour les collectivités",
+    "contexte": "Crédits de paiement · budget 2026",
+    "montant": 1085800000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Écologie, développement et mobilité durables », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-11.pdf"
+    }
+  },
+  {
+    "id": "electrification-rurale-compte-face",
+    "libelle": "Électrification rurale (compte FACÉ)",
+    "contexte": "Budget 2026",
+    "montant": 365300000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Écologie, développement et mobilité durables », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-310-1/l25-139-310-11.pdf"
+    }
+  },
+  {
+    "id": "cnil",
+    "libelle": "CNIL",
+    "contexte": "Crédits · budget 2026",
+    "montant": 31230000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Direction de l'action du Gouvernement », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-39/l25-139-39-syn.pdf"
+    }
+  },
+  {
+    "id": "arcom-regulateur-de-l-audiovisuel",
+    "libelle": "Arcom (régulateur de l'audiovisuel)",
+    "contexte": "Crédits · budget 2026",
+    "montant": 50520000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Direction de l'action du Gouvernement », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-39/l25-139-39-syn.pdf"
+    }
+  },
+  {
+    "id": "haute-autorite-pour-la-transparence-de-la-vie-pu",
+    "libelle": "Haute Autorité pour la transparence de la vie publique",
+    "contexte": "Crédits · budget 2026",
+    "montant": 11530000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Direction de l'action du Gouvernement », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-39/l25-139-39-syn.pdf"
+    }
+  },
+  {
+    "id": "subventions-aux-regimes-speciaux-de-retraite",
+    "libelle": "Subventions aux régimes spéciaux de retraite",
+    "contexte": "SNCF, RATP, marins, mines… · budget 2026",
+    "montant": 6000000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Régimes sociaux et de retraite », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-324/l25-139-324-syn.pdf"
+    }
+  },
+  {
+    "id": "budget-total-du-sport",
+    "libelle": "Budget total du sport",
+    "contexte": "Toutes composantes · budget 2026",
+    "montant": 849300000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Sport », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-61/a25-144-61-syn.pdf"
+    }
+  },
+  {
+    "id": "agence-nationale-du-sport",
+    "libelle": "Agence nationale du sport",
+    "contexte": "Contribution de l'État · budget 2026",
+    "montant": 156000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Sport », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-61/a25-144-61-syn.pdf"
+    }
+  },
+  {
+    "id": "primes-aux-medailles-des-jo-d-hiver-2026",
+    "libelle": "Primes aux médaillés des JO d'hiver 2026",
+    "contexte": "Milan-Cortina",
+    "montant": 7200000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Sport », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-61/a25-144-61-syn.pdf"
+    }
+  },
+  {
+    "id": "agence-francaise-de-lutte-contre-le-dopage",
+    "libelle": "Agence française de lutte contre le dopage",
+    "contexte": "Subvention · budget 2026",
+    "montant": 10900000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, avis « Sport », budget 2026",
+      "url": "https://www.senat.fr/rap/a25-144-61/a25-144-61-syn.pdf"
+    }
+  },
+  {
+    "id": "action-exterieure-de-l-etat",
+    "libelle": "Action extérieure de l'État",
+    "contexte": "Diplomatie, consulats · budget 2026",
+    "montant": 3457430000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Action extérieure de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-31/l25-139-31-syn.pdf"
+    }
+  },
+  {
+    "id": "agence-pour-l-enseignement-francais-a-l-etranger",
+    "libelle": "Agence pour l'enseignement français à l'étranger",
+    "contexte": "Subvention · budget 2026",
+    "montant": 391640000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Action extérieure de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-31/l25-139-31-syn.pdf"
+    }
+  },
+  {
+    "id": "bourses-du-gouvernement-francais",
+    "libelle": "Bourses du Gouvernement français",
+    "contexte": "Étudiants étrangers · budget 2026",
+    "montant": 56300000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Action extérieure de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-31/l25-139-31-syn.pdf"
+    }
+  },
+  {
+    "id": "plan-france-2030",
+    "libelle": "Plan France 2030",
+    "contexte": "Enveloppe totale sur dix ans",
+    "montant": 54000000000,
+    "annee": 2021,
+    "source": {
+      "titre": "Sénat, rapport « Investir pour la France de 2030 », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-316/l25-139-316-syn.pdf"
+    }
+  },
+  {
+    "id": "dette-publique-de-la-france",
+    "libelle": "Dette publique de la France",
+    "contexte": "Fin 2025",
+    "montant": 3460500000000,
+    "annee": 2025,
+    "source": {
+      "titre": "Insee, dette publique au 4e trimestre 2025",
+      "url": "https://www.insee.fr/fr/statistiques/fichier/version-html/8955019/IR79_Dette_4T2025.pdf"
+    }
+  },
+  {
+    "id": "grand-paris-express",
+    "libelle": "Grand Paris Express",
+    "contexte": "Coût estimé par la Cour des comptes en 2018",
+    "montant": 38500000000,
+    "annee": 2018,
+    "source": {
+      "titre": "Cour des comptes (janvier 2018), via Public Sénat",
+      "url": "https://www.publicsenat.fr/actualites/politique/les-couts-du-grand-paris-express-ne-cessent-de-deriver-alerte-la-cour-des-comptes"
+    }
+  },
+  {
+    "id": "investissements-de-la-ville-de-paris",
+    "libelle": "Investissements de la Ville de Paris",
+    "contexte": "Budget 2026",
+    "montant": 1500500000,
+    "annee": 2026,
+    "source": {
+      "titre": "Ville de Paris, budget 2026",
+      "url": "https://www.paris.fr/pages/5-graphiques-pour-comprendre-le-budget-2026-de-la-ville-33338"
+    }
+  },
+  {
+    "id": "indemnite-mensuelle-d-un-depute",
+    "libelle": "Indemnité mensuelle d'un député",
+    "contexte": "Montant brut · 2026",
+    "montant": 7637,
+    "annee": 2026,
+    "source": {
+      "titre": "LCP, chaîne de l'Assemblée nationale",
+      "url": "https://lcp.fr/actualites/baisser-l-indemnite-des-parlementaires-yael-braun-pivet-rappelle-que-les-deputes"
+    }
+  },
+  {
+    "id": "credit-mensuel-d-un-depute-pour-payer-ses-collab",
+    "libelle": "Crédit mensuel d'un député pour payer ses collaborateurs",
+    "contexte": "2026",
+    "montant": 10581,
+    "annee": 2026,
+    "source": {
+      "titre": "LCP, chaîne de l'Assemblée nationale",
+      "url": "https://lcp.fr/actualites/baisser-l-indemnite-des-parlementaires-yael-braun-pivet-rappelle-que-les-deputes"
+    }
+  },
+  {
+    "id": "legislatives-anticipees-de-2024",
+    "libelle": "Législatives anticipées de 2024",
+    "contexte": "Coût d'organisation pour l'État",
+    "montant": 171490000,
+    "annee": 2024,
+    "source": {
+      "titre": "Ministère de l'Intérieur, via Acteurs publics (novembre 2024)",
+      "url": "https://acteurspublics.fr/articles/les-legislatives-anticipees-ont-coute-171-49-millions-deuros/"
+    }
+  },
+  {
+    "id": "convention-citoyenne-pour-le-climat",
+    "libelle": "Convention citoyenne pour le climat",
+    "contexte": "2019-2020",
+    "montant": 6000000,
+    "annee": 2020,
+    "source": {
+      "titre": "Sénat, rapport « Conseil et contrôle de l'État », budget 2023",
+      "url": "https://www.senat.fr/rap/l22-115-37/l22-115-377.html"
+    },
+    "affichage": "> 6 M€"
+  },
+  {
+    "id": "convention-citoyenne-sur-la-fin-de-vie",
+    "libelle": "Convention citoyenne sur la fin de vie",
+    "contexte": "Coût prévisionnel · 2023",
+    "montant": 3050000,
+    "annee": 2023,
+    "source": {
+      "titre": "Sénat, rapport « Conseil et contrôle de l'État », budget 2023",
+      "url": "https://www.senat.fr/rap/l22-115-37/l22-115-377.html"
+    },
+    "affichage": "≈ 3 M€"
+  },
+  {
+    "id": "depenses-de-retraite-en-france",
+    "libelle": "Dépenses de retraite en France",
+    "contexte": "Tous régimes · 2024",
+    "montant": 407000000000,
+    "annee": 2024,
+    "source": {
+      "titre": "Conseil d'orientation des retraites, rapport annuel 2025",
+      "url": "https://www.cor-retraites.fr/sites/default/files/2025-06/Synth%C3%A8se_Def_.pdf"
+    }
+  },
+  {
+    "id": "porte-avions-de-nouvelle-generation",
+    "libelle": "Porte-avions de nouvelle génération",
+    "contexte": "Estimation du ministre des Armées · 2023",
+    "montant": 10000000000,
+    "annee": 2023,
+    "source": {
+      "titre": "Sébastien Lecornu devant le Sénat (juin 2023), via Public Sénat",
+      "url": "https://www.publicsenat.fr/actualites/institutions/loi-de-programmation-militaire-le-porte-avions-de-nouvelle-generation-estime-a-10-milliards-deuros-affirme-sebastien-lecornu"
+    },
+    "affichage": "≈ 10 Md€"
+  },
+  {
+    "id": "objectif-de-depenses-d-assurance-maladie-ondam",
+    "libelle": "Objectif de dépenses d'assurance maladie (Ondam)",
+    "contexte": "Fixé pour 2026",
+    "montant": 263900000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Assemblée nationale, rapport pour avis sur le financement de la Sécurité sociale 2026",
+      "url": "https://www.assemblee-nationale.fr/dyn/17/rapports/cion_fin/l17b2049_rapport-avis.pdf"
+    }
+  },
+  {
+    "id": "une-journee-de-detention",
+    "libelle": "Une journée de détention",
+    "contexte": "Coût moyen par détenu · 2024",
+    "montant": 129,
+    "annee": 2024,
+    "source": {
+      "titre": "Ministère de la Justice, réponse à la question écrite n° 13927 (mai 2026)",
+      "url": "https://questions.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE13927.pdf"
+    },
+    "affichage": "129,33 €"
+  },
+  {
+    "id": "une-journee-en-etablissement-pour-mineurs",
+    "libelle": "Une journée en établissement pour mineurs",
+    "contexte": "Coût moyen par détenu · 2024",
+    "montant": 699,
+    "annee": 2024,
+    "source": {
+      "titre": "Ministère de la Justice, réponse à la question écrite n° 13927 (mai 2026)",
+      "url": "https://questions.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE13927.pdf"
+    },
+    "affichage": "699,03 €"
+  },
+  {
+    "id": "une-journee-en-maison-centrale",
+    "libelle": "Une journée en maison centrale",
+    "contexte": "Coût moyen par détenu · 2024",
+    "montant": 262,
+    "annee": 2024,
+    "source": {
+      "titre": "Ministère de la Justice, réponse à la question écrite n° 13927 (mai 2026)",
+      "url": "https://questions.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE13927.pdf"
+    },
+    "affichage": "262,27 €"
+  },
+  {
+    "id": "chomage-partiel-pendant-le-covid",
+    "libelle": "Chômage partiel pendant le Covid",
+    "contexte": "Coût estimé en 2020, Unédic comprise",
+    "montant": 31000000000,
+    "annee": 2020,
+    "source": {
+      "titre": "Sénat, commission des finances, note de suivi Covid-19",
+      "url": "https://www.senat.fr/fileadmin/Fichiers/Images/commission/finances/1._Suivi_CF_Covid19/Note_de_suivi_Covid-19_-_Travail_et_emploi_VF.pdf"
+    },
+    "affichage": "≈ 31 Md€"
   }
 ]
