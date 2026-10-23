@@ -17,9 +17,15 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
-/** URL publique : fournie par Vercel si disponible, aucune variable n'est obligatoire. */
+/**
+ * URL publique, fournie par Vercel si disponible (aucune variable n'est obligatoire) :
+ * l'adresse de production en production, celle du déploiement sur les aperçus.
+ */
 function urlDuSite(): URL {
-  const hote = process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL;
+  const hote =
+    process.env.VERCEL_ENV === "production"
+      ? (process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL)
+      : process.env.VERCEL_URL;
   return new URL(hote ? `https://${hote}` : "http://localhost:3000");
 }
 
