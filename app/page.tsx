@@ -1,3 +1,4 @@
+import { BoutonTheme } from "@/components/BoutonTheme";
 import { Jeu } from "@/components/Jeu";
 import { calendrier, lignes } from "@/lib/donnees";
 import styles from "./page.module.css";
@@ -13,7 +14,10 @@ export default function Accueil() {
   return (
     <div className={styles.wrap}>
       <header className={styles.mast}>
-        <h1>L&apos;ADDITION</h1>
+        <div className={styles.titre}>
+          <h1>L&apos;ADDITION</h1>
+          <BoutonTheme />
+        </div>
         <p>Chaque jour, cinq lignes de dépenses publiques. Devinez si la suivante coûte plus ou moins cher.</p>
       </header>
 
