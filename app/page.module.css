@@ -10,6 +10,12 @@
   flex-direction: column;
   gap: 6px;
 }
+.titre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 .mast h1 {
   margin: 0;
   font-family: var(--f-display);

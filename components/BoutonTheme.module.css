@@ -1,0 +1,24 @@
+.bouton {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid var(--on-table);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--on-table);
+}
+.bouton:hover {
+  background: color-mix(in srgb, var(--on-table) 10%, transparent);
+}
+.bouton svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

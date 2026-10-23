@@ -46,9 +46,19 @@ export const viewport: Viewport = {
   ],
 };
 
+/** Applique le thème choisi avant le premier affichage, pour éviter un flash de l'autre thème. */
+const scriptTheme = `try{var t=JSON.parse(localStorage.getItem("addition:theme"));if(t==="clair"||t==="sombre")document.documentElement.dataset.theme=t==="clair"?"light":"dark"}catch(e){}`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${archivo.variable} ${atkinson.variable} ${plexMono.variable}`}>
+    <html
+      lang="fr"
+      className={`${archivo.variable} ${atkinson.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: scriptTheme }} />
+      </head>
       <body>
         {children}
         <Analytics />
