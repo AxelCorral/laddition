@@ -5,4 +5,4 @@
  * régénère tout le calendrier avec la base actuelle. Une fois passée, elle ne doit plus changer
  * (les numéros de tickets déjà joués en dépendent) ; le script refuse alors de la modifier.
  */
-export const DATE_LANCEMENT = "2026-11-02";
+export const DATE_LANCEMENT = "2026-10-26";
