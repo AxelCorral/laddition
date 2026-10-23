@@ -1,7 +1,11 @@
 import { BoutonTheme } from "@/components/BoutonTheme";
+import type { Metadata } from "next";
 import { Jeu } from "@/components/Jeu";
+import { Navigation } from "@/components/Navigation";
 import { calendrier, lignes } from "@/lib/donnees";
 import styles from "./page.module.css";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 /** Données envoyées au navigateur : les lignes et le calendrier, compacté en index. */
 function donneesDuJeu() {
@@ -30,13 +34,15 @@ export default function Accueil() {
 
       <footer className={styles.foot}>
         <span>
-          Montants arrondis, tirés de documents publics : Sénat, Assemblée nationale, Cour des comptes, Insee, ministère
-          de l&apos;Éducation nationale. Les montants 2026 sont ceux du projet de budget 2026. Chaque ligne renvoie à sa
-          source.
+          Montants arrondis à l&apos;affichage, tirés de documents publics : rapports parlementaires, Cour des comptes,
+          Insee, ministères. Les montants « budget 2026 » sont ceux du projet de loi de finances pour 2026. Chaque ligne
+          renvoie à sa source.
         </span>
         <span>
-          Jeu indépendant. Aucune donnée personnelle n&apos;est collectée ; votre série reste sur cet appareil.
+          Jeu indépendant, sans publicité. Aucune donnée personnelle n&apos;est collectée ; votre série reste sur cet
+          appareil.
         </span>
+        <Navigation actuelle="/" />
       </footer>
     </div>
   );

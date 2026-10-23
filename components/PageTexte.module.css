@@ -1,0 +1,78 @@
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.marque {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: clamp(28px, 8vw, 36px);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  color: var(--on-table);
+  text-decoration: none;
+}
+.papier {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 26px 20px 30px;
+  filter: drop-shadow(0 10px 18px rgba(10, 20, 30, 0.18));
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+@media (min-width: 560px) {
+  .papier {
+    padding: 34px 36px 38px;
+  }
+}
+.papier h1 {
+  margin: 0 0 18px;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-stretch: 110%;
+  font-size: 28px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.papier h2 {
+  margin: 28px 0 8px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--rule);
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.papier p,
+.papier ul {
+  margin: 0 0 12px;
+}
+.papier ul {
+  padding-left: 20px;
+}
+.papier li {
+  margin-bottom: 6px;
+}
+.papier a {
+  text-underline-offset: 3px;
+}
+.papier a:focus-visible,
+.papier button:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+.foot {
+  border-top: 1px solid color-mix(in srgb, var(--on-table) 18%, transparent);
+  padding-top: 10px;
+}

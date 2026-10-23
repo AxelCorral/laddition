@@ -33,6 +33,12 @@ Aucune variable d'environnement n'est obligatoire.
 - **Après le lancement**, la génération conserve tous les tickets jusqu'à demain inclus ; ajouter des lignes ne modifie que les tickets futurs. `DATE_LANCEMENT` ne peut plus changer (le script refuse), et `npm run verifier-donnees` échoue si le calendrier n'a pas été généré pour la date configurée.
 - Le build échoue si le calendrier couvre moins de 30 jours à venir : relancer `npm run generer-calendrier` (il génère un an d'avance). Au-delà du calendrier, le site bascule sur un tirage de secours déterministe.
 
+## Pages
+
+- `/` : le jeu. `/sources` : toutes les lignes, triables. `/methode` : origine des chiffres, règles, signalement d'erreur. `/mentions-legales`.
+- L'adresse de contact et de signalement est définie une seule fois, dans `lib/contact.ts`.
+- Référencement : `robots.txt`, `sitemap.xml`, adresses canoniques ; les pages de résultat `/r/…` ne sont pas indexées.
+
 ## Partage
 
 - Le texte copié en fin de partie pointe vers `/r/[numero]/[grille]` (par exemple `/r/12/11011`). Cette page affiche le score et la grille, sans dévoiler les lignes, et invite à jouer.

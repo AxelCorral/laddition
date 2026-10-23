@@ -1,0 +1,18 @@
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.adresse {
+  flex: 1 1 220px;
+  margin: 0 !important;
+  font-family: var(--f-mono);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 12px;
+  border: 1px dashed var(--rule);
+  user-select: all;
+  overflow-wrap: anywhere;
+}
