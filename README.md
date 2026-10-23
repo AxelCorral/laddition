@@ -33,6 +33,12 @@ Aucune variable d'environnement n'est obligatoire.
 - **Après le lancement**, la génération conserve tous les tickets jusqu'à demain inclus ; ajouter des lignes ne modifie que les tickets futurs. `DATE_LANCEMENT` ne peut plus changer (le script refuse), et `npm run verifier-donnees` échoue si le calendrier n'a pas été généré pour la date configurée.
 - Le build échoue si le calendrier couvre moins de 30 jours à venir : relancer `npm run generer-calendrier` (il génère un an d'avance). Au-delà du calendrier, le site bascule sur un tirage de secours déterministe.
 
+## Partage
+
+- Le texte copié en fin de partie pointe vers `/r/[numero]/[grille]` (par exemple `/r/12/11011`). Cette page affiche le score et la grille, sans dévoiler les lignes, et invite à jouer.
+- Images de partage (`next/og`) : `app/opengraph-image.tsx` (ticket du jour : première ligne et son montant, la suivante masquée ; recalculée toutes les heures) et `app/r/[numero]/[grille]/opengraph-image.tsx` (numéro, grille, score). Les polices TTF sont dans `assets/og/`.
+- Les pages et images de résultat sont générées à la première visite puis mises en cache.
+
 ## Déployer
 
 Avant la mise en ligne publique : fixer `DATE_LANCEMENT` dans `lib/config.ts`, puis `npm run generer-calendrier` et committer.

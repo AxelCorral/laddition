@@ -7,7 +7,15 @@ import { tirage } from "@/lib/calendrier";
 import { dateLongue, formaterCompteARebours, msAvantProchainTicket, numeroDuJour } from "@/lib/date-paris";
 import { formaterMontant, montantAffiche } from "@/lib/format";
 import { phraseRatio } from "@/lib/paires";
-import { type Mode, NB_QUESTIONS, reponseJuste, score, texteDePartage, verdict } from "@/lib/partie";
+import {
+  cheminPartage,
+  type Mode,
+  NB_QUESTIONS,
+  reponseJuste,
+  score,
+  texteDePartage,
+  verdict,
+} from "@/lib/partie";
 import type { Ligne } from "@/lib/schema";
 import {
   CLE_STATS,
@@ -403,7 +411,9 @@ function Fin({ partie, jour, onEntrainement, onRetourDuJour }: FinProps) {
   }, [texteSecours]);
 
   const copier = async () => {
-    const texte = texteDePartage({ mode, numero: partie.numero, reponses, url: `${window.location.origin}/` });
+    // Ticket du jour : lien vers la page de résultat (avec son image) ; entraînement : page d'accueil.
+    const chemin = mode === "jour" ? cheminPartage(partie.numero, reponses) : "/";
+    const texte = texteDePartage({ mode, numero: partie.numero, reponses, url: `${window.location.origin}${chemin}` });
     track("ticket_copie", { mode, score: points });
     try {
       await navigator.clipboard.writeText(texte);
