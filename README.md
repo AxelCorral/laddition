@@ -36,7 +36,7 @@ Aucune variable d'environnement n'est obligatoire.
 ## Pages
 
 - `/` : le jeu. `/sources` : toutes les lignes, triables. `/methode` : origine des chiffres, règles, signalement d'erreur. `/mentions-legales`.
-- Les informations personnelles de l'éditeur et l'adresse de signalement sont marquées `[À COMPLÉTER]` dans `app/mentions-legales/page.tsx` et `app/methode/page.tsx` (constante `ADRESSE_SIGNALEMENT`).
+- L'adresse de contact et de signalement est définie une seule fois, dans `lib/contact.ts`.
 - Référencement : `robots.txt`, `sitemap.xml`, adresses canoniques ; les pages de résultat `/r/…` ne sont pas indexées.
 
 ## Partage

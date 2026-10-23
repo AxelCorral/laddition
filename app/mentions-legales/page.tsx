@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageTexte } from "@/components/PageTexte";
+import { ADRESSE_CONTACT } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -12,11 +13,14 @@ export default function MentionsLegales() {
     <PageTexte titre="Mentions légales" chemin="/mentions-legales">
       <h2>Éditeur</h2>
       <p>
-        L&apos;Addition est un site personnel, édité à titre non professionnel par [À COMPLÉTER : nom ou pseudonyme].
+        L&apos;Addition est un site personnel, édité à titre non professionnel sous le pseudonyme « Jack ».
+        Conformément à l&apos;article 6 de la loi pour la confiance dans l&apos;économie numérique (LCEN), l&apos;hébergeur
+        dispose de l&apos;identité de l&apos;éditeur.
+      </p>
+      <p>
+        Directeur de la publication : Jack
         <br />
-        Contact : [À COMPLÉTER : adresse de contact]
-        <br />
-        Directeur de la publication : [À COMPLÉTER]
+        Contact : <a href={`mailto:${ADRESSE_CONTACT}`}>{ADRESSE_CONTACT}</a>
       </p>
 
       <h2>Hébergement</h2>
@@ -52,7 +56,6 @@ export default function MentionsLegales() {
           n&apos;est affiliée à aucune des institutions citées.
         </li>
         <li>Polices : Archivo, Atkinson Hyperlegible et IBM Plex Mono, sous licence SIL Open Font License 1.1.</li>
-        <li>Code du site : [À COMPLÉTER : licence]</li>
       </ul>
     </PageTexte>
   );

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BoutonCopier } from "@/components/BoutonCopier";
 import { PageTexte } from "@/components/PageTexte";
+import { ADRESSE_CONTACT } from "@/lib/contact";
 import { lignes } from "@/lib/donnees";
 import { REGLES } from "@/lib/paires";
 import styles from "./page.module.css";
@@ -11,9 +13,6 @@ export const metadata: Metadata = {
     "D'où viennent les montants de L'Addition, ce que signifie « budget 2026 », comment les tickets sont composés et comment signaler une erreur.",
   alternates: { canonical: "/methode" },
 };
-
-/** Adresse dédiée aux signalements, affichée en texte (pas de formulaire). */
-const ADRESSE_SIGNALEMENT = "[À COMPLÉTER : adresse dédiée]";
 
 const pourcent = (v: number) => `${Math.round(v * 100)} %`;
 
@@ -84,7 +83,10 @@ export default function Methode() {
         Un montant, une source ou un libellé vous paraît faux ? Écrivez à l&apos;adresse ci-dessous, en précisant la
         ligne concernée et, si possible, le document qui donne le bon chiffre.
       </p>
-      <p className={styles.adresse}>{ADRESSE_SIGNALEMENT}</p>
+      <div className={styles.contact}>
+        <p className={styles.adresse}>{ADRESSE_CONTACT}</p>
+        <BoutonCopier texte={ADRESSE_CONTACT} libelle="Copier l'adresse" />
+      </div>
     </PageTexte>
   );
 }

@@ -1,0 +1,21 @@
+.bouton {
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 14px;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.bouton:hover {
+  opacity: 0.88;
+}
+.message {
+  flex-basis: 100%;
+  font-size: 13px;
+  color: var(--hit);
+  min-height: 1.2em;
+}
