@@ -122,7 +122,7 @@
     "affichage": "≈ 12 M€"
   },
   {
-    "id": "remboursement-des-frais-de-campagne-presidentiel",
+    "id": "frais-campagne-presidentielle-2022",
     "libelle": "Remboursement des frais de campagne, présidentielle 2022",
     "contexte": "Versé par l'État aux candidats",
     "montant": 42200000,
@@ -552,7 +552,7 @@
     }
   },
   {
-    "id": "aide-d-urgence-aux-victimes-de-violences-conjuga",
+    "id": "aide-victimes-violences-conjugales",
     "libelle": "Aide d'urgence aux victimes de violences conjugales",
     "contexte": "Crédits · budget 2026",
     "montant": 26400000,
@@ -585,7 +585,7 @@
     }
   },
   {
-    "id": "dotation-aux-mairies-qui-delivrent-passeports-et",
+    "id": "dotation-mairies-titres-identite",
     "libelle": "Dotation aux mairies qui délivrent passeports et cartes d'identité",
     "contexte": "Budget 2026",
     "montant": 100000000,
@@ -662,7 +662,7 @@
     }
   },
   {
-    "id": "envoi-postal-des-professions-de-foi-des-municipa",
+    "id": "envoi-professions-de-foi-municipales",
     "libelle": "Envoi postal des professions de foi des municipales",
     "contexte": "Élections 2026",
     "montant": 46100000,
@@ -673,7 +673,7 @@
     }
   },
   {
-    "id": "fonds-interministeriel-de-prevention-de-la-delin",
+    "id": "fonds-prevention-delinquance",
     "libelle": "Fonds interministériel de prévention de la délinquance",
     "contexte": "Crédits · budget 2026",
     "montant": 43450000,
@@ -684,7 +684,7 @@
     }
   },
   {
-    "id": "reforme-du-mode-de-scrutin-a-paris-lyon-et-marse",
+    "id": "reforme-scrutin-paris-lyon-marseille",
     "libelle": "Réforme du mode de scrutin à Paris, Lyon et Marseille",
     "contexte": "Coût en 2026",
     "montant": 15200000,
@@ -706,7 +706,7 @@
     }
   },
   {
-    "id": "administration-generale-et-territoriale-de-l-eta",
+    "id": "administration-territoriale-etat",
     "libelle": "Administration générale et territoriale de l'État",
     "contexte": "Préfectures, élections · budget 2026",
     "montant": 5110000000,
@@ -724,7 +724,7 @@
     "annee": 2026,
     "source": {
       "titre": "Sénat, rapport « Outre-mer », budget 2026",
-      "url": "https://conferenceconsensuslogement.senat.fr/rap/l25-139-320/l25-139-320-syn.pdf"
+      "url": "https://www.senat.fr/rap/l25-139-320/l25-139-320-syn.pdf"
     }
   },
   {
@@ -735,7 +735,7 @@
     "annee": 2026,
     "source": {
       "titre": "Sénat, rapport « Outre-mer », budget 2026",
-      "url": "https://conferenceconsensuslogement.senat.fr/rap/l25-139-320/l25-139-320-syn.pdf"
+      "url": "https://www.senat.fr/rap/l25-139-320/l25-139-320-syn.pdf"
     }
   },
   {
@@ -827,7 +827,7 @@
     }
   },
   {
-    "id": "haute-autorite-pour-la-transparence-de-la-vie-pu",
+    "id": "autorite-transparence-vie-publique",
     "libelle": "Haute Autorité pour la transparence de la vie publique",
     "contexte": "Crédits · budget 2026",
     "montant": 11530000,
@@ -981,7 +981,7 @@
     }
   },
   {
-    "id": "credit-mensuel-d-un-depute-pour-payer-ses-collab",
+    "id": "credit-collaborateurs-depute",
     "libelle": "Crédit mensuel d'un député pour payer ses collaborateurs",
     "contexte": "2026",
     "montant": 10581,
