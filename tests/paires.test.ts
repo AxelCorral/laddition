@@ -54,6 +54,11 @@ describe("phraseRatio", () => {
   it("« au moins », arrondi vers le bas, pour un minimum", () => {
     expect(phraseRatio(m(353_470_000), m(1e9, "> 1 Md€"))).toBe("C'est au moins 2,8 fois plus que la ligne du dessus.");
   });
+  it("borne et approximation combinées", () => {
+    expect(phraseRatio(m(12e6, "≈ 12 M€"), m(1e9, "> 1 Md€"))).toBe(
+      "C'est au moins de l'ordre de 83 fois plus que la ligne du dessus.",
+    );
+  });
   it("« environ » pour un montant approximatif", () => {
     expect(phraseRatio(m(12e6, "≈ 12 M€"), m(35_600_000))).toBe("C'est environ 3 fois plus que la ligne du dessus.");
   });

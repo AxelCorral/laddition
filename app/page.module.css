@@ -1,0 +1,43 @@
+.wrap {
+  max-width: 440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.mast {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mast h1 {
+  margin: 0;
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-stretch: 125%;
+  font-size: clamp(34px, 10vw, 46px);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+.mast p {
+  margin: 0;
+  color: var(--on-table-muted);
+  font-size: 15px;
+}
+.howto,
+.foot {
+  font-size: 13.5px;
+  color: var(--on-table-muted);
+  margin: 0;
+}
+.howto b {
+  color: var(--on-table);
+}
+.foot {
+  border-top: 1px solid color-mix(in srgb, var(--on-table) 18%, transparent);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}

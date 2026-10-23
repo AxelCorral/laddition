@@ -62,10 +62,13 @@ export function phraseRatio(a: Comparable, b: Comparable): string {
   const pPetit = precision(petit);
   const pGrand = precision(grand);
 
-  if (pPetit === "environ" || pGrand === "environ") {
-    return `C'est environ ${arrondi(facteur)} fois ${sens} que la ligne du dessus.`;
+  const borne = pGrand === "minimum" || pPetit === "maximum";
+  const environ = pPetit === "environ" || pGrand === "environ";
+  if (borne && environ) {
+    return `C'est au moins de l'ordre de ${arrondiInferieur(facteur)} fois ${sens} que la ligne du dessus.`;
   }
-  if (pGrand === "minimum" || pPetit === "maximum") {
+  if (environ) return `C'est environ ${arrondi(facteur)} fois ${sens} que la ligne du dessus.`;
+  if (borne) {
     // Le vrai rapport est au moins celui-ci : on arrondit vers le bas pour ne jamais l'exagérer.
     return `C'est au moins ${arrondiInferieur(facteur)} fois ${sens} que la ligne du dessus.`;
   }
