@@ -1,6 +1,8 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Archivo, Atkinson_Hyperlegible, IBM_Plex_Mono } from "next/font/google";
+import { urlDuSite } from "@/lib/site";
+import { UMAMI_SCRIPT_URL, UMAMI_WEBSITE_ID } from "@/lib/statistiques";
 import "./globals.css";
 
 const archivo = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-archivo", display: "swap" });
@@ -16,18 +18,6 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   display: "swap",
 });
-
-/**
- * URL publique, fournie par Vercel si disponible (aucune variable n'est obligatoire) :
- * l'adresse de production en production, celle du déploiement sur les aperçus.
- */
-function urlDuSite(): URL {
-  const hote =
-    process.env.VERCEL_ENV === "production"
-      ? (process.env.VERCEL_PROJECT_PRODUCTION_URL ?? process.env.VERCEL_URL)
-      : process.env.VERCEL_URL;
-  return new URL(hote ? `https://${hote}` : "http://localhost:3000");
-}
 
 const description =
   "Chaque jour, cinq lignes de dépenses publiques. Devinez si la suivante coûte plus ou moins cher. Chaque montant renvoie à sa source officielle.";
@@ -67,7 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        <Analytics />
+        {UMAMI_WEBSITE_ID && (
+          <Script src={UMAMI_SCRIPT_URL} data-website-id={UMAMI_WEBSITE_ID} strategy="afterInteractive" />
+        )}
       </body>
     </html>
   );

@@ -1,6 +1,5 @@
 "use client";
 
-import { track } from "@vercel/analytics";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { hacher, mulberry32 } from "@/lib/aleatoire";
 import { tirage } from "@/lib/calendrier";
@@ -17,6 +16,7 @@ import {
   verdict,
 } from "@/lib/partie";
 import type { Ligne } from "@/lib/schema";
+import { suivre } from "@/lib/statistiques";
 import {
   CLE_STATS,
   clePartie,
@@ -110,9 +110,9 @@ export function Jeu(props: Props) {
     if (partie.mode === "jour") {
       stockage.ecrire(clePartie(partie.numero), { ids: partie.lignes.map((l) => l.id), reponses });
     }
-    if (reponses.length === 1) track("partie_commencee", { mode: partie.mode });
+    if (reponses.length === 1) suivre("partie_commencee", { mode: partie.mode });
     if (reponses.length === NB_QUESTIONS) {
-      track("partie_terminee", { mode: partie.mode, score: score(reponses) });
+      suivre("partie_terminee", { mode: partie.mode, score: score(reponses) });
       if (partie.mode === "jour") {
         const stats = enregistrerTicketTermine(lireStats(stockage.lire(CLE_STATS)), partie.numero);
         stockage.ecrire(CLE_STATS, stats);
@@ -414,7 +414,7 @@ function Fin({ partie, jour, onEntrainement, onRetourDuJour }: FinProps) {
     // Ticket du jour : lien vers la page de résultat (avec son image) ; entraînement : page d'accueil.
     const chemin = mode === "jour" ? cheminPartage(partie.numero, reponses) : "/";
     const texte = texteDePartage({ mode, numero: partie.numero, reponses, url: `${window.location.origin}${chemin}` });
-    track("ticket_copie", { mode, score: points });
+    suivre("ticket_copie", { mode, score: points });
     try {
       await navigator.clipboard.writeText(texte);
       setTexteSecours(null);
