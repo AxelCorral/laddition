@@ -1,0 +1,9 @@
+.adresse {
+  font-family: var(--f-mono);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1px dashed var(--rule);
+  user-select: all;
+  overflow-wrap: anywhere;
+}
