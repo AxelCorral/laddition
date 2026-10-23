@@ -1,19 +1,21 @@
 import { writeFileSync } from "node:fs";
-import { GRAINE, genererCalendrier, serialiserCalendrier } from "../lib/calendrier";
-import { numeroDuJour } from "../lib/date-paris";
+import { GRAINE, dernierTicketFige, genererCalendrier, serialiserCalendrier } from "../lib/calendrier";
+import { DATE_LANCEMENT } from "../lib/config";
+import { lancementPasse, numeroDuJour } from "../lib/date-paris";
 import { calendrierSchema, verifierLignes } from "../lib/verification";
 import { CHEMIN_CALENDRIER, CHEMIN_LIGNES, instantDeReference, lireJson } from "./commun";
 
 /**
  * Usage :
- *   npm run generer-calendrier                       prolonge le calendrier, tickets publiés intacts
- *   npm run generer-calendrier -- --jours=365        horizon (en jours après aujourd'hui)
- *   npm run generer-calendrier -- --tout-regenerer   repart de zéro (uniquement avant toute publication !)
+ *   npm run generer-calendrier                  avant le lancement : régénère tout ;
+ *                                               après : prolonge, tickets publiés intacts
+ *   npm run generer-calendrier -- --jours=365   horizon (en jours après aujourd'hui)
+ *   npm run generer-calendrier -- --date=…      simule un autre jour (AAAA-MM-JJ)
  */
 const args = process.argv.slice(2);
 const jours = Number(args.find((a) => a.startsWith("--jours="))?.slice(8) ?? 365);
-const toutRegenerer = args.includes("--tout-regenerer");
-const aujourdhui = numeroDuJour(instantDeReference(args));
+const instant = instantDeReference(args);
+const aujourdhui = numeroDuJour(instant);
 
 const { lignes, erreurs } = verifierLignes(lireJson(CHEMIN_LIGNES));
 if (!lignes) {
@@ -21,14 +23,23 @@ if (!lignes) {
   process.exit(1);
 }
 
-const existant = toutRegenerer ? undefined : lireJson(CHEMIN_CALENDRIER);
-const ancien = existant === undefined ? undefined : calendrierSchema.parse(existant);
+const existant = lireJson(CHEMIN_CALENDRIER);
+const ancien = existant === undefined ? undefined : calendrierSchema.safeParse(existant).data;
 
-// Aujourd'hui et demain sont déjà publiés (ou sur le point de l'être) : on ne les touche jamais.
-const limiteFigee = aujourdhui + 1;
+// Une fois le site lancé, la date du ticket n° 1 ne peut plus bouger : les numéros déjà joués en dépendent.
+if (ancien && ancien.lancement !== DATE_LANCEMENT && lancementPasse(instant, ancien.lancement)) {
+  console.error(
+    `✗ Le site est lancé depuis le ${ancien.lancement} : DATE_LANCEMENT (${DATE_LANCEMENT}) ne peut plus changer.`,
+  );
+  process.exit(1);
+}
+
+// Avant le lancement, rien n'est figé ; après, aujourd'hui et demain ne sont jamais touchés.
+const limiteFigee = dernierTicketFige(instant, DATE_LANCEMENT);
 const figes = ancien?.tickets.filter((t) => t.numero <= limiteFigee) ?? [];
 
 const { calendrier, avertissements } = genererCalendrier(lignes, {
+  lancement: DATE_LANCEMENT,
   graine: ancien?.graine ?? GRAINE,
   figes,
   jusquA: aujourdhui + jours,
@@ -37,5 +48,6 @@ const { calendrier, avertissements } = genererCalendrier(lignes, {
 writeFileSync(CHEMIN_CALENDRIER, serialiserCalendrier(calendrier));
 avertissements.forEach((a) => console.warn(`⚠ ${a}`));
 console.log(
-  `✓ ${calendrier.tickets.length} tickets écrits (${figes.length} conservés, jusqu'au n° ${calendrier.tickets.length}).`,
+  `✓ ${calendrier.tickets.length} tickets écrits (${figes.length} conservés, jusqu'au n° ${calendrier.tickets.length}) ; ` +
+    `ticket n° 1 le ${DATE_LANCEMENT}${lancementPasse(instant) ? "" : ", pas encore lancé : rien n'est figé"}.`,
 );

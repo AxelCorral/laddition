@@ -25,14 +25,17 @@ Aucune variable d'environnement n'est obligatoire.
 
 ## Le calendrier
 
-- Ticket n° 1 : 23 octobre 2026. Le jour change à minuit, heure de Paris (changements d'heure compris).
+- Ticket n° 1 : le jour de `DATE_LANCEMENT` (`lib/config.ts`), à fixer au jour de la mise en ligne publique. Le jour change à minuit, heure de Paris (changements d'heure compris). Avant cette date, le site affiche le ticket n° 1.
 - `data/calendrier.lock.json` liste les lignes de chaque ticket ; le site ne fait que le lire. Il est généré par `scripts/generer-calendrier.ts` (logique dans `lib/calendrier.ts`).
 - La base est mélangée par cycles avec une graine fixe et parcourue par paquets de 6 : aucune ligne ne revient avant que toute la base ait été jouée. Les lignes restantes en fin de cycle (moins de 6, ou qui ne s'enchaînent pas entre elles) passent en priorité dans les tickets suivants. Les lignes vues à la fin d'un cycle sont repoussées en fin du cycle suivant.
 - Deux lignes consécutives doivent former une paire jouable : rapport ≤ 1 000, écart ≥ 8 % (≥ 20 % si l'un des montants est approximatif) ; un montant « minimum » doit toujours être le plus grand de sa paire.
-- **Stabilité** : la génération conserve tous les tickets jusqu'à demain inclus. Ajouter des lignes ne modifie que les tickets futurs. `--tout-regenerer` repart de zéro et ne doit servir qu'avant toute publication.
+- **Avant le lancement**, rien n'est figé : `npm run generer-calendrier` régénère tout le calendrier avec la base actuelle.
+- **Après le lancement**, la génération conserve tous les tickets jusqu'à demain inclus ; ajouter des lignes ne modifie que les tickets futurs. `DATE_LANCEMENT` ne peut plus changer (le script refuse), et `npm run verifier-donnees` échoue si le calendrier n'a pas été généré pour la date configurée.
 - Le build échoue si le calendrier couvre moins de 30 jours à venir : relancer `npm run generer-calendrier` (il génère un an d'avance). Au-delà du calendrier, le site bascule sur un tirage de secours déterministe.
 
 ## Déployer
+
+Avant la mise en ligne publique : fixer `DATE_LANCEMENT` dans `lib/config.ts`, puis `npm run generer-calendrier` et committer.
 
 Relier le dépôt à Vercel (framework Next.js détecté automatiquement). Chaque pull request obtient un aperçu. Pour les événements d'audience (`partie_commencee`, `partie_terminee`, `ticket_copie`), activer Web Analytics dans le projet Vercel ; les événements personnalisés nécessitent un plan Pro.
 

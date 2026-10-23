@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { TAILLE_TICKET, type Calendrier } from "./calendrier";
+import { DATE_LANCEMENT } from "./config";
 import { paireJouable } from "./paires";
 import { lignesSchema, type Ligne } from "./schema";
 
@@ -47,6 +48,7 @@ function doublons<T>(elements: readonly T[], cle: (e: T) => string): [string, nu
 }
 
 export const calendrierSchema = z.object({
+  lancement: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   graine: z.string().min(1),
   tickets: z.array(
     z.object({
@@ -69,6 +71,11 @@ export function verifierCalendrier(brut: unknown, lignes: readonly Ligne[], nume
     return { erreurs: resultat.error.issues.map((p) => `calendrier › ${p.path.join(".")} : ${p.message}`), avertissements };
   }
   const calendrier: Calendrier = resultat.data;
+  if (calendrier.lancement !== DATE_LANCEMENT) {
+    erreurs.push(
+      `le calendrier a été généré pour un lancement le ${calendrier.lancement}, mais DATE_LANCEMENT vaut ${DATE_LANCEMENT} (lancez npm run generer-calendrier)`,
+    );
+  }
   const parId = new Map(lignes.map((l) => [l.id, l]));
 
   calendrier.tickets.forEach((t, i) => {

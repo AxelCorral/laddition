@@ -1,4 +1,6 @@
 import { hacher, melanger, mulberry32 } from "./aleatoire";
+import { DATE_LANCEMENT } from "./config";
+import { lancementPasse, numeroDuJour } from "./date-paris";
 import { paireJouable } from "./paires";
 import type { Ligne } from "./schema";
 
@@ -18,7 +20,8 @@ import type { Ligne } from "./schema";
  *   demi-période sont placées en fin de mélange, pour qu'une ligne ne revienne pas deux jours de suite.
  * - Dans un ticket, deux lignes consécutives doivent former une paire jouable (voir `paires.ts`) ;
  *   on prend les lignes dans l'ordre du mélange en sautant celles qui ne s'enchaînent pas.
- * - Stabilité : regénérer ne touche jamais aux tickets déjà publiés (jusqu'à demain inclus).
+ * - Avant le lancement (`DATE_LANCEMENT`), rien n'est figé : tout le calendrier est régénéré.
+ * - Après : regénérer ne touche jamais aux tickets déjà publiés (jusqu'à demain inclus).
  *   Les lignes ajoutées entrent dans les tickets futurs : elles ne sont pas encore « jouées »
  *   dans le cycle en cours, donc elles apparaissent avant la fin de ce cycle.
  */
@@ -33,8 +36,18 @@ export interface TicketCalendrier {
 }
 
 export interface Calendrier {
+  /** Date du ticket n° 1 au moment de la génération. */
+  lancement: string;
   graine: string;
   tickets: TicketCalendrier[];
+}
+
+/**
+ * Dernier numéro de ticket à conserver lors d'une regénération : aucun avant le lancement,
+ * puis tous les tickets jusqu'à demain inclus (déjà publiés ou sur le point de l'être).
+ */
+export function dernierTicketFige(instant: Date, lancement: string): number {
+  return lancementPasse(instant, lancement) ? numeroDuJour(instant, lancement) + 1 : 0;
 }
 
 type Comparable = Pick<Ligne, "id" | "montant" | "affichage">;
@@ -84,6 +97,8 @@ export function composerTicket<T extends Comparable>(
 
 export interface OptionsGeneration {
   graine?: string;
+  /** Date du ticket n° 1, enregistrée dans le calendrier. */
+  lancement?: string;
   /** Tickets à conserver tels quels (déjà publiés). */
   figes?: readonly TicketCalendrier[];
   /** Dernier numéro à générer. */
@@ -97,6 +112,7 @@ export interface ResultatGeneration {
 
 export function genererCalendrier(lignes: readonly Comparable[], options: OptionsGeneration): ResultatGeneration {
   const graine = options.graine ?? GRAINE;
+  const lancement = options.lancement ?? DATE_LANCEMENT;
   const parId = new Map(lignes.map((l) => [l.id, l]));
   const ids = lignes.map((l) => l.id);
   const tickets: TicketCalendrier[] = (options.figes ?? []).map((t) => ({ ...t, ids: [...t.ids] }));
@@ -181,7 +197,7 @@ export function genererCalendrier(lignes: readonly Comparable[], options: Option
     tickets.push({ numero, cycle, ids: choix.map((l) => l.id) });
   }
 
-  return { calendrier: { graine, tickets }, avertissements };
+  return { calendrier: { lancement, graine, tickets }, avertissements };
 }
 
 /** Lignes du ticket n° `numero`. Au-delà du calendrier figé, tirage déterministe de secours. */
@@ -208,5 +224,5 @@ export function tirage<T extends Comparable>(lignes: readonly T[], aleatoire: ()
 /** Sérialisation lisible : un ticket par ligne, pour des diffs clairs. */
 export function serialiserCalendrier(calendrier: Calendrier): string {
   const lignes = calendrier.tickets.map((t) => "    " + JSON.stringify(t));
-  return `{\n  "graine": ${JSON.stringify(calendrier.graine)},\n  "tickets": [\n${lignes.join(",\n")}\n  ]\n}\n`;
+  return `{\n  "lancement": ${JSON.stringify(calendrier.lancement)},\n  "graine": ${JSON.stringify(calendrier.graine)},\n  "tickets": [\n${lignes.join(",\n")}\n  ]\n}\n`;
 }

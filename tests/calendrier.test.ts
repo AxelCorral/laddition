@@ -5,10 +5,12 @@ import { mulberry32 } from "@/lib/aleatoire";
 import {
   type TicketCalendrier,
   composerTicket,
+  dernierTicketFige,
   genererCalendrier,
   lignesDuTicket,
   tirage,
 } from "@/lib/calendrier";
+import { DATE_LANCEMENT } from "@/lib/config";
 import { numeroDuJour } from "@/lib/date-paris";
 import { paireJouable } from "@/lib/paires";
 import { type Ligne, lignesSchema } from "@/lib/schema";
@@ -116,11 +118,7 @@ describe("calendrier : pas de répétition avant épuisement de la base", () => 
 
   it("le fichier figé respecte les règles", () => {
     verifierTickets(calendrierFige.tickets, lignes);
-    // Les deux premiers tickets ont été figés avec l'ancienne base de 22 lignes.
-    verifierSansRepetition(
-      calendrierFige.tickets.filter((t) => t.cycle > 0),
-      lignes,
-    );
+    verifierSansRepetition(calendrierFige.tickets, lignes);
   });
 });
 
@@ -157,6 +155,21 @@ describe("calendrier : stabilité quand on ajoute des lignes", () => {
     );
     const enCours = etendu.tickets.filter((t) => t.cycle === cycleAjout).flatMap((t) => t.ids);
     expect(new Set(enCours).size).toBe(enCours.length);
+  });
+});
+
+describe("calendrier : date de lancement", () => {
+  const L = "2026-11-02";
+  it("avant le lancement, aucun ticket n'est figé", () => {
+    expect(dernierTicketFige(new Date("2026-10-23T12:00:00+02:00"), L)).toBe(0);
+    expect(dernierTicketFige(new Date("2026-11-01T23:59:59+01:00"), L)).toBe(0);
+  });
+  it("à partir du lancement, aujourd'hui et demain sont figés", () => {
+    expect(dernierTicketFige(new Date("2026-11-02T00:00:00+01:00"), L)).toBe(2);
+    expect(dernierTicketFige(new Date("2026-11-10T18:00:00+01:00"), L)).toBe(10);
+  });
+  it("le calendrier figé correspond à DATE_LANCEMENT", () => {
+    expect(calendrierFige.lancement).toBe(DATE_LANCEMENT);
   });
 });
 
