@@ -1,5 +1,6 @@
-/** Le ticket n° 1 est celui du 23 octobre 2026, heure de Paris. */
-export const DATE_LANCEMENT = "2026-10-23";
+import { DATE_LANCEMENT } from "./config";
+
+export { DATE_LANCEMENT };
 
 const FUSEAU = "Europe/Paris";
 const JOUR_MS = 86_400_000;
@@ -42,18 +43,29 @@ function joursDepuisEpoque(annee: number, mois: number, jour: number): number {
   return Math.floor(Date.UTC(annee, mois - 1, jour) / JOUR_MS);
 }
 
-const [la, lm, lj] = DATE_LANCEMENT.split("-").map(Number) as [number, number, number];
-const JOUR_LANCEMENT = joursDepuisEpoque(la, lm, lj);
+function jourDeLaDate(date: string): number {
+  const [a, m, j] = date.split("-").map(Number) as [number, number, number];
+  return joursDepuisEpoque(a, m, j);
+}
 
-/** Numéro du ticket du jour (1 le jour du lancement ; 1 aussi avant, par prudence). */
-export function numeroDuJour(instant: Date = new Date()): number {
+function jourParis(instant: Date): number {
   const p = partiesParis(instant);
-  return Math.max(1, joursDepuisEpoque(p.annee, p.mois, p.jour) - JOUR_LANCEMENT + 1);
+  return joursDepuisEpoque(p.annee, p.mois, p.jour);
+}
+
+/** Numéro du ticket du jour (1 le jour du lancement ; 1 aussi avant). */
+export function numeroDuJour(instant: Date = new Date(), lancement: string = DATE_LANCEMENT): number {
+  return Math.max(1, jourParis(instant) - jourDeLaDate(lancement) + 1);
+}
+
+/** Vrai à partir de minuit (heure de Paris) le jour du lancement. */
+export function lancementPasse(instant: Date = new Date(), lancement: string = DATE_LANCEMENT): boolean {
+  return jourParis(instant) >= jourDeLaDate(lancement);
 }
 
 /** Date (AAAA-MM-JJ) correspondant à un numéro de ticket. */
-export function dateDuTicket(numero: number): string {
-  return new Date((JOUR_LANCEMENT + numero - 1) * JOUR_MS).toISOString().slice(0, 10);
+export function dateDuTicket(numero: number, lancement: string = DATE_LANCEMENT): string {
+  return new Date((jourDeLaDate(lancement) + numero - 1) * JOUR_MS).toISOString().slice(0, 10);
 }
 
 /** Décalage de Paris par rapport à UTC, en millisecondes, à un instant donné. */

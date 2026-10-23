@@ -5,10 +5,12 @@ import { mulberry32 } from "@/lib/aleatoire";
 import {
   type TicketCalendrier,
   composerTicket,
+  dernierTicketFige,
   genererCalendrier,
   lignesDuTicket,
   tirage,
 } from "@/lib/calendrier";
+import { DATE_LANCEMENT } from "@/lib/config";
 import { numeroDuJour } from "@/lib/date-paris";
 import { paireJouable } from "@/lib/paires";
 import { type Ligne, lignesSchema } from "@/lib/schema";
@@ -29,9 +31,10 @@ function verifierSansRepetition(tickets: readonly TicketCalendrier[], base: read
   cycles.forEach((c, i) => {
     const duCycle = tickets.filter((t) => t.cycle === c).flatMap((t) => t.ids);
     expect(new Set(duCycle).size, `doublon dans le cycle ${c}`).toBe(duCycle.length);
-    const suivant = tickets.find((t) => t.cycle === cycles[i + 1]);
-    if (!suivant) return;
-    const couverts = new Set([...duCycle, ...suivant.ids]);
+    // Les lignes restantes d'un cycle peuvent déborder sur les premiers tickets du suivant.
+    const suivants = tickets.filter((t) => t.cycle === cycles[i + 1]).slice(0, 3);
+    if (suivants.length < 3) return;
+    const couverts = new Set([...duCycle, ...suivants.flatMap((t) => t.ids)]);
     expect(ids.filter((id) => !couverts.has(id)), `cycle ${c} incomplet`).toEqual([]);
   });
 }
@@ -75,12 +78,16 @@ describe("calendrier : déterminisme", () => {
     expect(b).toEqual(a);
   });
 
-  it("le fichier figé correspond à la génération actuelle (pas de modification manuelle)", () => {
-    const { calendrier } = genererCalendrier(lignes, {
-      graine: calendrierFige.graine,
-      jusquA: calendrierFige.tickets.length,
-    });
-    expect(calendrier.tickets).toEqual(calendrierFige.tickets);
+  it("le fichier figé est cohérent avec la génération (pas de modification manuelle)", () => {
+    // Prolonger le calendrier figé depuis n'importe quel point, sans changer la base, ne modifie rien.
+    for (const coupe of [30, 100, 200]) {
+      const { calendrier } = genererCalendrier(lignes, {
+        graine: calendrierFige.graine,
+        figes: calendrierFige.tickets.slice(0, coupe),
+        jusquA: calendrierFige.tickets.length,
+      });
+      expect(calendrier.tickets).toEqual(calendrierFige.tickets);
+    }
   });
 
   it("au-delà du calendrier, le tirage de secours est déterministe et jouable", () => {
@@ -92,8 +99,9 @@ describe("calendrier : déterminisme", () => {
 });
 
 describe("calendrier : pas de répétition avant épuisement de la base", () => {
-  it("sur la base réelle (22 lignes)", () => {
-    const { calendrier } = genererCalendrier(lignes, { jusquA: 200 });
+  it("sur la base réelle", () => {
+    const { calendrier, avertissements } = genererCalendrier(lignes, { jusquA: 400 });
+    expect(avertissements).toEqual([]);
     verifierTickets(calendrier.tickets, lignes);
     verifierSansRepetition(calendrier.tickets, lignes);
     expect(ecartMinimal(calendrier.tickets)).toBeGreaterThanOrEqual(2);
@@ -147,6 +155,21 @@ describe("calendrier : stabilité quand on ajoute des lignes", () => {
     );
     const enCours = etendu.tickets.filter((t) => t.cycle === cycleAjout).flatMap((t) => t.ids);
     expect(new Set(enCours).size).toBe(enCours.length);
+  });
+});
+
+describe("calendrier : date de lancement", () => {
+  const L = "2026-11-02";
+  it("avant le lancement, aucun ticket n'est figé", () => {
+    expect(dernierTicketFige(new Date("2026-10-23T12:00:00+02:00"), L)).toBe(0);
+    expect(dernierTicketFige(new Date("2026-11-01T23:59:59+01:00"), L)).toBe(0);
+  });
+  it("à partir du lancement, aujourd'hui et demain sont figés", () => {
+    expect(dernierTicketFige(new Date("2026-11-02T00:00:00+01:00"), L)).toBe(2);
+    expect(dernierTicketFige(new Date("2026-11-10T18:00:00+01:00"), L)).toBe(10);
+  });
+  it("le calendrier figé correspond à DATE_LANCEMENT", () => {
+    expect(calendrierFige.lancement).toBe(DATE_LANCEMENT);
   });
 });
 

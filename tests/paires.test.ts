@@ -22,10 +22,12 @@ describe("paireJouable", () => {
     expect(paireJouable(m(1e6), m(1.001e9))).toBe(false);
     expect(paireJouable(m(1e6), m(1e9))).toBe(true);
   });
-  it("refuse l'égalité et les écarts de moins de 5 %", () => {
+  it("refuse l'égalité et les écarts de moins de 8 %", () => {
     expect(paireJouable(m(1e6), m(1e6))).toBe(false);
     expect(paireJouable(m(111_500_000), m(113_000_000))).toBe(false);
-    expect(paireJouable(m(100e6), m(105e6))).toBe(true);
+    expect(paireJouable(m(3_457_430_000), m(3_670_000_000))).toBe(false);
+    expect(paireJouable(m(100e6), m(107e6))).toBe(false);
+    expect(paireJouable(m(100e6), m(108e6))).toBe(true);
   });
   it("exige 20 % d'écart avec un montant « environ »", () => {
     expect(paireJouable(m(12e6, "≈ 12 M€"), m(14e6))).toBe(false);
