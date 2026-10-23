@@ -1,0 +1,246 @@
+[
+  {
+    "id": "dotation-de-l-elysee",
+    "libelle": "Dotation de l'Élysée",
+    "contexte": "Versée par l'État · budget 2026",
+    "montant": 122560000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Pouvoirs publics », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-322/l25-139-322-syn.pdf"
+    }
+  },
+  {
+    "id": "dotation-de-l-assemblee-nationale",
+    "libelle": "Dotation de l'Assemblée nationale",
+    "contexte": "Versée par l'État · budget 2026",
+    "montant": 607650000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Pouvoirs publics », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-322/l25-139-322-syn.pdf"
+    }
+  },
+  {
+    "id": "dotation-du-senat",
+    "libelle": "Dotation du Sénat",
+    "contexte": "Versée par l'État · budget 2026",
+    "montant": 353470000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Pouvoirs publics », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-322/l25-139-322-syn.pdf"
+    }
+  },
+  {
+    "id": "dotation-du-conseil-constitutionnel",
+    "libelle": "Dotation du Conseil constitutionnel",
+    "contexte": "Budget 2026",
+    "montant": 20000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Pouvoirs publics » 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Pouvoirs_publics_Essentiel_post-commission_PLF_26.pdf"
+    }
+  },
+  {
+    "id": "chaines-lcp-et-public-senat",
+    "libelle": "Chaînes LCP et Public Sénat",
+    "contexte": "Dotations cumulées · budget 2026",
+    "montant": 35600000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Pouvoirs publics », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-322/l25-139-322-syn.pdf"
+    }
+  },
+  {
+    "id": "conseil-economique-social-et-environnemental",
+    "libelle": "Conseil économique, social et environnemental",
+    "contexte": "Crédits du CESE · budget 2026",
+    "montant": 34100000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Conseil et contrôle de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-36/l25-139-36-syn.pdf"
+    }
+  },
+  {
+    "id": "cour-des-comptes-et-chambres-regionales",
+    "libelle": "Cour des comptes et chambres régionales",
+    "contexte": "Crédits · budget 2026",
+    "montant": 267200000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Conseil et contrôle de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-36/l25-139-36-syn.pdf"
+    }
+  },
+  {
+    "id": "conseil-d-etat-et-tribunaux-administratifs",
+    "libelle": "Conseil d'État et tribunaux administratifs",
+    "contexte": "Crédits · budget 2026",
+    "montant": 568000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Conseil et contrôle de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-36/l25-139-36-syn.pdf"
+    }
+  },
+  {
+    "id": "interets-de-la-dette-de-l-etat",
+    "libelle": "Intérêts de la dette de l'État",
+    "contexte": "Charge prévue pour 2026",
+    "montant": 58000000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Engagements financiers de l'État », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-312/l25-139-312-syn.pdf"
+    }
+  },
+  {
+    "id": "jeux-olympiques-et-paralympiques-de-paris-2024",
+    "libelle": "Jeux olympiques et paralympiques de Paris 2024",
+    "contexte": "Total de l'argent public dépensé",
+    "montant": 6650000000,
+    "annee": 2024,
+    "source": {
+      "titre": "Cour des comptes, bilan des JO (sept. 2025), via Banque des Territoires",
+      "url": "https://www.banquedesterritoires.fr/pour-la-cour-des-comptes-paris-2024-eu-un-impact-economique-limite"
+    }
+  },
+  {
+    "id": "grand-debat-national-de-2019",
+    "libelle": "Grand débat national de 2019",
+    "contexte": "Coût total prévisionnel",
+    "montant": 12000000,
+    "annee": 2019,
+    "source": {
+      "titre": "Assemblée nationale, réponse du gouvernement à la question n° 17859",
+      "url": "https://www2.assemblee-nationale.fr/questions/detail/15/qe/17859/(vue)/pdf"
+    },
+    "affichage": "≈ 12 M€"
+  },
+  {
+    "id": "remboursement-des-frais-de-campagne-presidentiel",
+    "libelle": "Remboursement des frais de campagne, présidentielle 2022",
+    "contexte": "Versé par l'État aux candidats",
+    "montant": 42200000,
+    "annee": 2022,
+    "source": {
+      "titre": "Rapport d'activité 2022 de la CNCCFP, via La finance pour tous",
+      "url": "https://www.lafinancepourtous.com/decryptages/finance-et-societe/finance-et-politique/lencadrement-des-depenses-de-campagnes-electorales-et-le-remboursement-par-letat/"
+    }
+  },
+  {
+    "id": "cabinets-de-conseil-payes-par-l-etat",
+    "libelle": "Cabinets de conseil payés par l'État",
+    "contexte": "Ministères et opérateurs · 2021",
+    "montant": 1000000000,
+    "annee": 2021,
+    "source": {
+      "titre": "Commission d'enquête du Sénat (mars 2022), via Public Sénat",
+      "url": "https://www.publicsenat.fr/actualites/non-classe/le-recours-aux-cabinets-de-conseil-par-l-etat-est-un-systeme-installe-epingle"
+    },
+    "affichage": "> 1 Md€"
+  },
+  {
+    "id": "les-431-operateurs-de-l-etat",
+    "libelle": "Les 431 opérateurs de l'État",
+    "contexte": "Financements publics reçus · 2026",
+    "montant": 73000000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Assemblée nationale, compte rendu de la commission des finances (2026)",
+      "url": "https://www.assemblee-nationale.fr/dyn/opendata/CRCANR5L17S2026PO59048N071.html"
+    }
+  },
+  {
+    "id": "depense-totale-d-education-en-france",
+    "libelle": "Dépense totale d'éducation en France",
+    "contexte": "Tous financeurs confondus · 2024",
+    "montant": 197100000000,
+    "annee": 2024,
+    "source": {
+      "titre": "Ministère de l'Éducation nationale, DEPP, note sur la dépense d'éducation 2024",
+      "url": "https://www.education.gouv.fr/depp/en-2024-1971-milliards-d-euros-consacres-l-education-soit-68-du-pib-452853"
+    }
+  },
+  {
+    "id": "pass-culture-part-individuelle",
+    "libelle": "Pass Culture, part individuelle",
+    "contexte": "Crédits · budget 2026",
+    "montant": 127500000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, rapport « Culture », budget 2026",
+      "url": "https://www.senat.fr/rap/l25-139-37/l25-139-37-syn.pdf"
+    }
+  },
+  {
+    "id": "budget-du-ministere-de-la-culture",
+    "libelle": "Budget du ministère de la Culture",
+    "contexte": "Crédits de paiement · budget 2026",
+    "montant": 3748000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Culture » 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Essentiel_Culture_2026_post_commission.pdf"
+    }
+  },
+  {
+    "id": "programme-patrimoines",
+    "libelle": "Programme « Patrimoines »",
+    "contexte": "Monuments, musées, archives · budget 2026",
+    "montant": 1047000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Culture » 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Essentiel_Culture_2026_post_commission.pdf"
+    }
+  },
+  {
+    "id": "deficit-public-de-la-france",
+    "libelle": "Déficit public de la France",
+    "contexte": "Toutes administrations · 2025",
+    "montant": 152500000000,
+    "annee": 2025,
+    "source": {
+      "titre": "Insee Première n° 2106, comptes des administrations publiques 2025",
+      "url": "https://www.insee.fr/fr/statistiques/8997691"
+    }
+  },
+  {
+    "id": "subvention-a-l-opera-national-de-paris",
+    "libelle": "Subvention à l'Opéra national de Paris",
+    "contexte": "Versée par l'État · 2026",
+    "montant": 111500000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Culture » 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Essentiel_Culture_2026_post_commission.pdf"
+    }
+  },
+  {
+    "id": "subvention-au-centre-pompidou",
+    "libelle": "Subvention au Centre Pompidou",
+    "contexte": "Versée par l'État · 2026",
+    "montant": 113000000,
+    "annee": 2026,
+    "source": {
+      "titre": "Sénat, commission des finances, « Culture » 2026",
+      "url": "https://www.senat.fr/fileadmin/cru-1762483659/Commissions/Finances/2025-2026/PLF_2026/Essentiel/Essentiel_Culture_2026_post_commission.pdf"
+    }
+  },
+  {
+    "id": "organisation-de-la-presidentielle-2012",
+    "libelle": "Organisation de la présidentielle 2012",
+    "contexte": "Coût pour l'État",
+    "montant": 180000000,
+    "annee": 2012,
+    "source": {
+      "titre": "Rapport du Sénat sur le coût des élections, via la Revue politique et parlementaire",
+      "url": "https://www.revuepolitique.fr/?p=1244"
+    }
+  }
+]
