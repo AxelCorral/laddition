@@ -5,8 +5,8 @@ import type { Ligne } from "./schema";
 export const REGLES = {
   /** Au-delà, la comparaison est trop facile. */
   ratioMax: 1000,
-  /** Écart relatif minimal entre deux montants exacts (5 %) : en dessous, c'est pile ou face. */
-  ecartMinExact: 0.05,
+  /** Écart relatif minimal entre deux montants exacts (8 %) : en dessous, c'est pile ou face. */
+  ecartMinExact: 0.08,
   /** Écart relatif minimal quand l'un des montants est approximatif (« ≈ 12 M€ »). */
   ecartMinApprox: 0.2,
 } as const;
@@ -34,7 +34,7 @@ type Comparable = Pick<Ligne, "montant" | "affichage">;
 /**
  * Une paire est jouable si la bonne réponse est certaine et pas triviale.
  * - Ratio ≤ 1 000.
- * - Montants exacts : écart ≥ 5 %.
+ * - Montants exacts : écart ≥ 8 %.
  * - Un montant « environ » : écart ≥ 20 %.
  * - Un montant « minimum » doit être le plus grand des deux (sinon la vraie valeur pourrait dépasser l'autre),
  *   et inversement pour un « maximum ».

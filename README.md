@@ -28,7 +28,7 @@ Aucune variable d'environnement n'est obligatoire.
 - Ticket n° 1 : 23 octobre 2026. Le jour change à minuit, heure de Paris (changements d'heure compris).
 - `data/calendrier.lock.json` liste les lignes de chaque ticket ; le site ne fait que le lire. Il est généré par `scripts/generer-calendrier.ts` (logique dans `lib/calendrier.ts`).
 - La base est mélangée par cycles avec une graine fixe et parcourue par paquets de 6 : aucune ligne ne revient avant que toute la base ait été jouée. Les lignes restantes en fin de cycle (moins de 6, ou qui ne s'enchaînent pas entre elles) passent en priorité dans les tickets suivants. Les lignes vues à la fin d'un cycle sont repoussées en fin du cycle suivant.
-- Deux lignes consécutives doivent former une paire jouable : rapport ≤ 1 000, écart ≥ 5 % (≥ 20 % si l'un des montants est approximatif) ; un montant « minimum » doit toujours être le plus grand de sa paire.
+- Deux lignes consécutives doivent former une paire jouable : rapport ≤ 1 000, écart ≥ 8 % (≥ 20 % si l'un des montants est approximatif) ; un montant « minimum » doit toujours être le plus grand de sa paire.
 - **Stabilité** : la génération conserve tous les tickets jusqu'à demain inclus. Ajouter des lignes ne modifie que les tickets futurs. `--tout-regenerer` repart de zéro et ne doit servir qu'avant toute publication.
 - Le build échoue si le calendrier couvre moins de 30 jours à venir : relancer `npm run generer-calendrier` (il génère un an d'avance). Au-delà du calendrier, le site bascule sur un tirage de secours déterministe.
 
