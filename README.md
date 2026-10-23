@@ -43,7 +43,24 @@ Aucune variable d'environnement n'est obligatoire.
 
 Avant la mise en ligne publique : fixer `DATE_LANCEMENT` dans `lib/config.ts`, puis `npm run generer-calendrier` et committer.
 
-Relier le dépôt à Vercel (framework Next.js détecté automatiquement). Chaque pull request obtient un aperçu. Pour les événements d'audience (`partie_commencee`, `partie_terminee`, `ticket_copie`), activer Web Analytics dans le projet Vercel ; les événements personnalisés nécessitent un plan Pro.
+Relier le dépôt à Vercel (`vercel.json` déclare Next.js). Chaque pull request obtient un aperçu. Aucune variable d'environnement n'est obligatoire.
+
+### Variables facultatives
+
+| Variable | Rôle |
+|---|---|
+| `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Active la mesure d'audience Umami (sans cookie). Absente : aucun script chargé. La définir seulement pour l'environnement Production, pour ne pas compter les aperçus. |
+| `NEXT_PUBLIC_UMAMI_SCRIPT_URL` | Script Umami à charger (par défaut `https://cloud.umami.is/script.js`). |
+| `NEXT_PUBLIC_SITE_URL` | Adresse publique forcée (sinon, le domaine de production Vercel). |
+
+Événements envoyés : `partie_commencee`, `partie_terminee` (avec le score) et `ticket_copie`.
+
+### Brancher un nom de domaine
+
+1. Vercel › projet › Settings › Domains : ajouter le domaine, suivre les instructions DNS.
+2. Le déclarer domaine de production et faire rediriger l'adresse `.vercel.app` vers lui.
+3. Rien à changer dans le code : les métadonnées, images de partage et liens copiés suivent le domaine de production. Pour forcer une adresse, définir `NEXT_PUBLIC_SITE_URL` puis redéployer.
+4. Dans Umami, mettre à jour le domaine du site.
 
 ## Vie privée
 
