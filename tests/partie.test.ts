@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
+  cheminPartage,
   decoderGrille,
+  lireLienPartage,
   encoderGrille,
   grilleEmoji,
   reponseJuste,
@@ -83,5 +85,26 @@ describe("reprise de partie", () => {
     expect(partieValide({ ids: [...ids].reverse(), reponses: [] }, ids)).toBe(false);
     expect(partieValide({ ids, reponses: [1] }, ids)).toBe(false);
     expect(partieValide(null, ids)).toBe(false);
+  });
+});
+
+describe("lien de partage", () => {
+  it("construit le chemin /r/[numero]/[grille]", () => {
+    expect(cheminPartage(12, [true, true, false, true, true])).toBe("/r/12/11011");
+  });
+  it("relit un lien valide", () => {
+    expect(lireLienPartage("12", "11011")).toEqual({ numero: 12, reponses: [true, true, false, true, true] });
+  });
+  it.each([
+    ["0", "11011"],
+    ["012", "11011"],
+    ["-3", "11011"],
+    ["1e3", "11011"],
+    ["100000", "11011"],
+    ["12", "1101"],
+    ["12", "11012"],
+    ["12", "110111"],
+  ])("refuse /r/%s/%s", (numero, grille) => {
+    expect(lireLienPartage(numero, grille)).toBeNull();
   });
 });

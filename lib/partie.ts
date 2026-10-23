@@ -51,3 +51,20 @@ export function texteDePartage({ mode, numero, reponses, url }: Partage): string
   const titre = mode === "jour" ? `L'Addition n° ${numero} : ${points}` : `L'Addition (entraînement) : ${points}`;
   return [titre, grilleEmoji(reponses), "Combien coûte la France ?", url].filter(Boolean).join("\n");
 }
+
+/** Plus grand numéro accepté dans un lien de partage (garde-fou contre les URL fantaisistes). */
+const NUMERO_MAX = 99_999;
+
+/** Chemin de la page de résultat partagée : « /r/12/11011 ». */
+export function cheminPartage(numero: number, reponses: readonly boolean[]): string {
+  return `/r/${numero}/${encoderGrille(reponses)}`;
+}
+
+/** Lit les paramètres d'un lien de partage ; null si le lien est invalide. */
+export function lireLienPartage(numero: string, grille: string): { numero: number; reponses: boolean[] } | null {
+  if (!/^[1-9]\d*$/.test(numero)) return null;
+  const n = Number(numero);
+  const reponses = decoderGrille(grille);
+  if (n > NUMERO_MAX || !reponses) return null;
+  return { numero: n, reponses };
+}
