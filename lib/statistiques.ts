@@ -4,6 +4,8 @@
  * - NEXT_PUBLIC_UMAMI_WEBSITE_ID : identifiant du site dans Umami. Absent : aucun script chargé.
  * - NEXT_PUBLIC_UMAMI_SCRIPT_URL : script à charger (par défaut, Umami Cloud).
  */
+import { lancementPasse } from "./date-paris";
+
 export const UMAMI_WEBSITE_ID = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID || undefined;
 export const UMAMI_SCRIPT_URL = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL || "https://cloud.umami.is/script.js";
 
@@ -17,8 +19,12 @@ declare global {
   }
 }
 
-/** Envoie un événement si Umami est chargé ; ne fait jamais échouer le jeu. */
+/**
+ * Envoie un événement si Umami est chargé, et seulement après le lancement (les parties
+ * d'avant-première ne comptent pas). Ne fait jamais échouer le jeu.
+ */
 export function suivre(evenement: Evenement, donnees?: Donnees): void {
+  if (!lancementPasse()) return;
   try {
     window.umami?.track(evenement, donnees);
   } catch {

@@ -16,6 +16,14 @@
   font-weight: 600;
 }
 
+.avantPremiere {
+  margin: -6px 0 0;
+  padding: 10px 12px;
+  border: 1px dashed color-mix(in srgb, var(--on-table) 45%, transparent);
+  font-size: 14px;
+  color: var(--on-table);
+}
+
 .receipt {
   position: relative;
   background: var(--paper);

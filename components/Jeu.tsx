@@ -3,7 +3,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { hacher, mulberry32 } from "@/lib/aleatoire";
 import { tirage } from "@/lib/calendrier";
-import { dateLongue, formaterCompteARebours, msAvantProchainTicket, numeroDuJour } from "@/lib/date-paris";
+import {
+  DATE_LANCEMENT,
+  dateLongue,
+  formaterCompteARebours,
+  lancementPasse,
+  msAvantProchainTicket,
+  numeroDuJour,
+} from "@/lib/date-paris";
 import { formaterMontant, montantAffiche } from "@/lib/format";
 import { phraseRatio } from "@/lib/paires";
 import {
@@ -22,6 +29,7 @@ import {
   clePartie,
   enregistrerTicketTermine,
   lireStats,
+  nettoyerAnciennesSauvegardes,
   partieValide,
   serieEnCours,
   stockage,
@@ -43,7 +51,17 @@ interface Partie {
   lignes: Ligne[];
   reponses: boolean[];
   etape: Etape;
+  /** Faux en avant-première : la partie n'est ni sauvegardée ni comptée dans la série. */
+  enregistree: boolean;
 }
+
+/** « lundi 26 octobre » */
+const DATE_OUVERTURE = new Intl.DateTimeFormat("fr-FR", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  timeZone: "UTC",
+}).format(new Date(`${DATE_LANCEMENT}T12:00:00Z`));
 
 function lignesDuJour(props: Props, numero: number): Ligne[] {
   const indices = props.tickets[numero - 1];
@@ -67,7 +85,8 @@ export function Jeu(props: Props) {
     (numero: number) => {
       const lignes = lignesDuJour(props, numero);
       const ids = lignes.map((l) => l.id);
-      const sauvegarde = stockage.lire<unknown>(clePartie(numero));
+      const enregistree = lancementPasse();
+      const sauvegarde = enregistree ? stockage.lire<unknown>(clePartie(numero)) : null;
       const reponses = partieValide(sauvegarde, ids) ? sauvegarde.reponses : [];
       setPartie({
         mode: "jour",
@@ -75,6 +94,7 @@ export function Jeu(props: Props) {
         lignes,
         reponses,
         etape: reponses.length >= NB_QUESTIONS ? "fin" : "question",
+        enregistree,
       });
     },
     [props],
@@ -82,6 +102,7 @@ export function Jeu(props: Props) {
 
   // Le jour n'est connu que dans le navigateur (page statique) : on démarre au montage.
   useEffect(() => {
+    nettoyerAnciennesSauvegardes();
     const numero = numeroDuJour();
     setJour(numero);
     setSerie(serieEnCours(lireStats(stockage.lire(CLE_STATS)), numero));
@@ -93,11 +114,13 @@ export function Jeu(props: Props) {
     if (jour === null) return;
     const id = setInterval(() => {
       const numero = numeroDuJour();
-      if (numero === jour) return;
+      const p = partieRef.current;
+      // Le jour du lancement, le numéro reste 1 : c'est la fin de l'avant-première qui déclenche le changement.
+      const finAvantPremiere = p !== null && p.mode === "jour" && !p.enregistree && lancementPasse();
+      if (numero === jour && !finAvantPremiere) return;
       setJour(numero);
       setSerie(serieEnCours(lireStats(stockage.lire(CLE_STATS)), numero));
-      const p = partieRef.current;
-      if (p && p.mode === "jour" && p.etape === "fin") demarrerDuJour(numero);
+      if (p && p.mode === "jour" && (p.etape === "fin" || finAvantPremiere)) demarrerDuJour(numero);
     }, 15_000);
     return () => clearInterval(id);
   }, [jour, demarrerDuJour]);
@@ -107,13 +130,13 @@ export function Jeu(props: Props) {
     const i = partie.reponses.length;
     const juste = reponseJuste(partie.lignes[i]!.montant, partie.lignes[i + 1]!.montant, plusCher);
     const reponses = [...partie.reponses, juste];
-    if (partie.mode === "jour") {
+    if (partie.mode === "jour" && partie.enregistree) {
       stockage.ecrire(clePartie(partie.numero), { ids: partie.lignes.map((l) => l.id), reponses });
     }
     if (reponses.length === 1) suivre("partie_commencee", { mode: partie.mode });
     if (reponses.length === NB_QUESTIONS) {
       suivre("partie_terminee", { mode: partie.mode, score: score(reponses) });
-      if (partie.mode === "jour") {
+      if (partie.mode === "jour" && partie.enregistree) {
         const stats = enregistrerTicketTermine(lireStats(stockage.lire(CLE_STATS)), partie.numero);
         stockage.ecrire(CLE_STATS, stats);
         setSerie(serieEnCours(stats, jour ?? partie.numero));
@@ -129,7 +152,7 @@ export function Jeu(props: Props) {
 
   const entrainement = () => {
     const lignes = tirage(props.lignes, Math.random);
-    setPartie({ mode: "entrainement", numero: jour ?? 1, lignes, reponses: [], etape: "question" });
+    setPartie({ mode: "entrainement", numero: jour ?? 1, lignes, reponses: [], etape: "question", enregistree: false });
     window.scrollTo({ top: 0, behavior: reduireMouvement() ? "auto" : "smooth" });
   };
 
@@ -149,6 +172,13 @@ export function Jeu(props: Props) {
           Série <b>{serie}</b>
         </span>
       </div>
+
+      {partie && partie.mode === "jour" && !partie.enregistree && (
+        <p className={styles.avantPremiere}>
+          <b>Avant-première.</b> Le jeu ouvre le {DATE_OUVERTURE}. Cette partie n&apos;est pas enregistrée et ne compte
+          pas dans la série.
+        </p>
+      )}
 
       <main className={styles.receipt}>
         {partie ? (
@@ -459,7 +489,14 @@ function Fin({ partie, jour, onEntrainement, onRetourDuJour }: FinProps) {
         </p>
       </div>
 
-      {mode === "jour" && <CompteARebours />}
+      {mode === "jour" &&
+        (partie.enregistree ? (
+          <CompteARebours />
+        ) : (
+          <div className={styles.next}>
+            Ouverture le <b>{DATE_OUVERTURE}</b>
+          </div>
+        ))}
 
       <div className={styles.recap}>
         <h2>{mode === "jour" ? "Les lignes du jour et leurs sources" : "Les lignes et leurs sources"}</h2>
