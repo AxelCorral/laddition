@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { stockage } from "@/lib/stockage";
+import { CLE_THEME, stockage } from "@/lib/stockage";
 import styles from "./BoutonTheme.module.css";
 
 type Theme = "clair" | "sombre";
-
-const CLE_THEME = "addition:theme";
 
 function themeActuel(): Theme {
   const force = document.documentElement.dataset.theme;

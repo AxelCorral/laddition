@@ -1,3 +1,5 @@
+import { DATE_LANCEMENT } from "./config";
+
 /** Accès au localStorage, toujours protégé : navigation privée, stockage bloqué, rendu serveur… */
 export const stockage = {
   lire<T>(cle: string): T | null {
@@ -17,8 +19,31 @@ export const stockage = {
   },
 };
 
-export const CLE_STATS = "addition:stats";
-export const clePartie = (numero: number) => `addition:jour:${numero}`;
+/**
+ * Les clés portent la date de lancement : les parties jouées avant (ou avec un ancien calendrier)
+ * ne sont jamais relues comme des tickets du jour.
+ */
+const PREFIXE = `addition:${DATE_LANCEMENT}:`;
+export const CLE_STATS = `${PREFIXE}stats`;
+export const clePartie = (numero: number) => `${PREFIXE}jour:${numero}`;
+/** Préférence d'affichage, indépendante du calendrier. */
+export const CLE_THEME = "addition:theme";
+
+/** Supprime les sauvegardes d'avant le lancement ou d'un ancien format (« addition:jour:1 »…). */
+export function nettoyerAnciennesSauvegardes(): void {
+  try {
+    const ls = globalThis.localStorage;
+    if (!ls) return;
+    const aSupprimer: string[] = [];
+    for (let i = 0; i < ls.length; i++) {
+      const cle = ls.key(i);
+      if (cle && cle.startsWith("addition:") && cle !== CLE_THEME && !cle.startsWith(PREFIXE)) aSupprimer.push(cle);
+    }
+    aSupprimer.forEach((cle) => ls.removeItem(cle));
+  } catch {
+    /* stockage indisponible */
+  }
+}
 
 export interface PartieSauvegardee {
   ids: string[];

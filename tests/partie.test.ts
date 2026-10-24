@@ -108,3 +108,39 @@ describe("lien de partage", () => {
     expect(lireLienPartage(numero, grille)).toBeNull();
   });
 });
+
+describe("clés de sauvegarde", () => {
+  it("portent la date de lancement", async () => {
+    const { CLE_STATS, clePartie } = await import("@/lib/stockage");
+    const { DATE_LANCEMENT } = await import("@/lib/config");
+    expect(clePartie(3)).toBe(`addition:${DATE_LANCEMENT}:jour:3`);
+    expect(CLE_STATS).toBe(`addition:${DATE_LANCEMENT}:stats`);
+  });
+
+  it("le nettoyage supprime les anciennes sauvegardes, garde le thème et les actuelles", async () => {
+    const { CLE_THEME, clePartie, nettoyerAnciennesSauvegardes } = await import("@/lib/stockage");
+    const donnees = new Map<string, string>([
+      ["addition:jour:1", "{}"],
+      ["addition:stats", "{}"],
+      ["addition:2026-11-02:jour:1", "{}"],
+      [CLE_THEME, '"sombre"'],
+      [clePartie(1), "{}"],
+      ["autre-site", "x"],
+    ]);
+    const faux = {
+      get length() {
+        return donnees.size;
+      },
+      key: (i: number) => [...donnees.keys()][i] ?? null,
+      removeItem: (k: string) => void donnees.delete(k),
+    };
+    const avant = globalThis.localStorage;
+    Object.defineProperty(globalThis, "localStorage", { value: faux, configurable: true });
+    try {
+      nettoyerAnciennesSauvegardes();
+    } finally {
+      Object.defineProperty(globalThis, "localStorage", { value: avant, configurable: true });
+    }
+    expect([...donnees.keys()].sort()).toEqual([CLE_THEME, clePartie(1), "autre-site"].sort());
+  });
+});
