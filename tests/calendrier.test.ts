@@ -12,6 +12,7 @@ import {
 } from "@/lib/calendrier";
 import { DATE_LANCEMENT } from "@/lib/config";
 import { numeroDuJour } from "@/lib/date-paris";
+import { etatDesSources } from "@/lib/jeu";
 import { paireJouable } from "@/lib/paires";
 import { type Ligne, lignesSchema } from "@/lib/schema";
 import { calendrierSchema, verifierCalendrier } from "@/lib/verification";
@@ -203,5 +204,39 @@ describe("verifierCalendrier", () => {
   it("signale une ligne retirée de la base dans un ticket à venir", () => {
     const sansPremiere = lignes.filter((l) => l.id !== calendrierFige.tickets[4]!.ids[0]);
     expect(verifierCalendrier(brutCalendrier, sansPremiere, 1).erreurs.length).toBeGreaterThan(0);
+  });
+});
+
+describe("sources visibles", () => {
+  const index = new Map(lignes.map((l, i) => [l.id, i]));
+  const donnees = {
+    lignes,
+    tickets: calendrierFige.tickets.map((t) => t.ids.map((id) => index.get(id)!)),
+    graine: calendrierFige.graine,
+  };
+
+  it("ticket n° 1 sans réponse : seule la première ligne est visible", () => {
+    const e = etatDesSources(donnees, 1, 0);
+    expect(e.jour.map((x) => x.revelee)).toEqual([true, false, false, false, false, false]);
+    expect(e.passees).toEqual([]);
+    expect(e.masquees).toBe(lignes.length - 1);
+  });
+
+  it("après 3 réponses, les lignes 1 à 4 sont visibles, pas la 5 ni la 6", () => {
+    const e = etatDesSources(donnees, 1, 3);
+    expect(e.jour.map((x) => x.revelee)).toEqual([true, true, true, true, false, false]);
+  });
+
+  it("partie terminée : les 6 lignes sont visibles", () => {
+    expect(etatDesSources(donnees, 1, 5).jour.every((x) => x.revelee)).toBe(true);
+  });
+
+  it("les tickets précédents sont visibles, sans les lignes du ticket du jour", () => {
+    const e = etatDesSources(donnees, 20, 0);
+    const duJour = new Set(e.jour.map((x) => x.ligne.id));
+    const attendues = new Set(calendrierFige.tickets.slice(0, 19).flatMap((t) => t.ids).filter((id) => !duJour.has(id)));
+    expect(new Set(e.passees.map((l) => l.id))).toEqual(attendues);
+    expect(e.passees.some((l) => duJour.has(l.id))).toBe(false);
+    expect(e.masquees).toBe(lignes.length - attendues.size - 1);
   });
 });

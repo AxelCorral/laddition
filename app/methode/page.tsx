@@ -21,7 +21,8 @@ export default function Methode() {
     <PageTexte titre="Méthode" chemin="/methode">
       <p>
         L&apos;Addition montre des montants, sans les commenter. Chaque ligne renvoie à un document public, et la{" "}
-        <Link href="/sources">page des sources</Link> les liste toutes ({lignes.length} lignes).
+        <Link href="/sources">page des sources</Link> liste celles qui ont déjà été jouées. La base compte{" "}
+        {lignes.length} lignes ; pour ne rien dévoiler, une ligne n&apos;y apparaît qu&apos;une fois jouée.
       </p>
 
       <h2>D&apos;où viennent les chiffres</h2>
