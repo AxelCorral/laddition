@@ -2,17 +2,10 @@ import { BoutonTheme } from "@/components/BoutonTheme";
 import type { Metadata } from "next";
 import { Jeu } from "@/components/Jeu";
 import { Navigation } from "@/components/Navigation";
-import { calendrier, lignes } from "@/lib/donnees";
+import { donneesDuJeu } from "@/lib/donnees";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
-
-/** Données envoyées au navigateur : les lignes et le calendrier, compacté en index. */
-function donneesDuJeu() {
-  const index = new Map(lignes.map((l, i) => [l.id, i]));
-  const tickets = calendrier.tickets.map((t) => t.ids.map((id) => index.get(id) ?? -1));
-  return { lignes, tickets, graine: calendrier.graine };
-}
 
 export default function Accueil() {
   return (

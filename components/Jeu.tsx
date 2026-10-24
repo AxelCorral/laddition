@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { hacher, mulberry32 } from "@/lib/aleatoire";
 import { tirage } from "@/lib/calendrier";
 import {
   DATE_LANCEMENT,
@@ -11,6 +10,7 @@ import {
   msAvantProchainTicket,
   numeroDuJour,
 } from "@/lib/date-paris";
+import { type DonneesJeu, lignesDuJour } from "@/lib/jeu";
 import { formaterMontant, montantAffiche } from "@/lib/format";
 import { phraseRatio } from "@/lib/paires";
 import {
@@ -36,12 +36,7 @@ import {
 } from "@/lib/stockage";
 import styles from "./Jeu.module.css";
 
-interface Props {
-  lignes: Ligne[];
-  /** Tickets du calendrier figé, en index dans `lignes`. */
-  tickets: number[][];
-  graine: string;
-}
+type Props = DonneesJeu;
 
 type Etape = "question" | "revelation" | "fin";
 
@@ -62,13 +57,6 @@ const DATE_OUVERTURE = new Intl.DateTimeFormat("fr-FR", {
   month: "long",
   timeZone: "UTC",
 }).format(new Date(`${DATE_LANCEMENT}T12:00:00Z`));
-
-function lignesDuJour(props: Props, numero: number): Ligne[] {
-  const indices = props.tickets[numero - 1];
-  if (indices && indices.every((i) => props.lignes[i])) return indices.map((i) => props.lignes[i]!);
-  // Au-delà du calendrier figé : tirage déterministe de secours (identique pour tout le monde).
-  return tirage(props.lignes, mulberry32(hacher(`${props.graine}:secours:${numero}`)));
-}
 
 function reduireMouvement(): boolean {
   return typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
